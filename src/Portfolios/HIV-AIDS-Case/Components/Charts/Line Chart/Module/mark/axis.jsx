@@ -8,8 +8,6 @@ export const Axis = (props) => {
     innerHeight,
     xScale,
     yScale,
-    xAxisTitle,
-    yAxisTitle,
     dateFormat,
     rowByYear,
     handleOnMouEnter,
@@ -54,7 +52,6 @@ export const Axis = (props) => {
               dx="-.71em"
               dy=".32em"
               textAnchor="end"
-              w
             >
               {i === yScale.ticks(2).length - 1 ? (
                 <>
@@ -88,7 +85,7 @@ export const Axis = (props) => {
           arrow
           disableInteractive
           followCursor
-          enterTouchDelay="50"
+          enterTouchDelay={50}
           title={
             <ThemeProvider theme={TextTheme}>
               <Typography

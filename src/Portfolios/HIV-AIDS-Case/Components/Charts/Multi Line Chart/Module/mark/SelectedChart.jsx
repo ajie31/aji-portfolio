@@ -47,7 +47,7 @@ export const SelectedChart = (props) => {
             placement="top"
             arrow
             disableInteractive
-            enterTouchDelay="50"
+            enterTouchDelay={50}
           >
             <circle
               cx={xScale(xValue(d))}

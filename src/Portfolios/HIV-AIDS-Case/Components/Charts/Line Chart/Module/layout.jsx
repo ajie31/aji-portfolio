@@ -5,7 +5,7 @@ export const Layout = ({ children }) => {
     <Box className="chart-one-title">
       <ThemeProvider theme={TextTheme}>
         <Typography variant="contentTitle">
-          Kasus Hiv & AIDS Tahun 2011 - 2020
+          Kasus Hiv And AIDS Tahun 2011 - 2020
         </Typography>
         <Typography variant="body2">
           jumlah kasus HIV positif yang dilaporkan dari tahun ketahun cenderung

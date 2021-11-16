@@ -21,7 +21,7 @@ export const SelectProvince = ({
   const handleSelectProvince = (event, newAlignment) => {
     setProvince(newAlignment);
   };
-  console.log(data.get("Jawa Timur")[topic][9]);
+
   return (
     <div style={divStyle}>
       <ThemeProvider theme={TextTheme}>

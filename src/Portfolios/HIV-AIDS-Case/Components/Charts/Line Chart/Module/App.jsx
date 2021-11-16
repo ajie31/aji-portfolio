@@ -113,8 +113,6 @@ export const App = (props) => {
             innerHeight={innerHeight}
             xScale={xScale}
             yScale={yScale}
-            xAxisTitle={xAxisTitle}
-            yAxisTitle={yAxisTitle}
             dateFormat={dateFormat}
             rowByYear={rowByYear}
             handleOnMouEnter={handleOnMouEnter}

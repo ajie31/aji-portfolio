@@ -29,7 +29,7 @@ export const ToggleCatagory = ({
         key={c}
         value={c}
         disabled={alignment === c}
-        fullWidth="none"
+        fullWidth
       >
         <Typography variant="caption">{c}</Typography>
       </ToggleButton>

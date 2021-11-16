@@ -65,8 +65,9 @@ export const App = (props) => {
   const yScaleHIV = useMemo(
     () =>
       scaleLog()
+        .clamp(true)
         .range([innerHeight, 0])
-        .domain([10, max(mergeDataHIV, yValue)])
+        .domain([5, max(mergeDataHIV, yValue)])
         .nice(),
     [scaleLog, extent, yValue, mergeDataHIV, innerHeight]
   );
@@ -80,8 +81,9 @@ export const App = (props) => {
   const yScaleAIDS = useMemo(
     () =>
       scaleLog()
+        .clamp(true)
         .range([innerHeight, 0])
-        .domain([10, max(mergeDataAIDS, yValue)])
+        .domain([5, max(mergeDataAIDS, yValue)])
         .nice(),
     [scaleLog, extent, yValue, mergeDataAIDS, innerHeight]
   );
