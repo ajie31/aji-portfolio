@@ -1,6 +1,23 @@
-import { Toolbar, AppBar, Typography, Link } from "@mui/material";
+import {
+  Toolbar,
+  AppBar,
+  Typography,
+  Link,
+  useMediaQuery,
+} from "@mui/material";
+import { breaks } from "../../styles/globalTheme";
 
+const styleToolbars = (breakPoint) => {
+  return {
+    flexWrap: "wrap",
+    textAlign: breakPoint ? "center" : "left",
+    justifyContent: breakPoint ? "space-evenly" : "flex-end",
+  };
+};
 export const Header = () => {
+  const breakSmall = useMediaQuery(breaks.breakpoints.down("sm"));
+  const breakMedium = useMediaQuery(breaks.breakpoints.down("md"));
+
   return (
     <>
       <AppBar
@@ -9,7 +26,7 @@ export const Header = () => {
         elevation={0}
         sx={{ bgcolor: "white" }}
       >
-        <Toolbar sx={{ flexWrap: "wrap" }}>
+        <Toolbar sx={styleToolbars(breakSmall)}>
           <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
             Aji Portfolio
           </Typography>
