@@ -19,6 +19,7 @@ export const Content = ({
   dataByAge,
   theme,
   breakSmall,
+  breakMedium,
 }) => (
   <>
     <Grid spacing="16" container>
@@ -29,6 +30,7 @@ export const Content = ({
             LineChart={LineChart}
             dataSum={dataSum}
             visualProps={visualProps}
+            breakSmall={breakSmall}
           />
         </Grid>
         <Grid className="provinces-cases-annually" item>
@@ -37,6 +39,7 @@ export const Content = ({
             MultiLineChart={MultiLineChart}
             dataPerProvince={dataPerProvince}
             visualProps={visualProps}
+            breakSmall={breakSmall}
           />
         </Grid>
       </Grid>
@@ -59,6 +62,7 @@ export const Content = ({
         dataByAge={dataByAge}
         visualProps={visualProps}
         breakSmall={breakSmall}
+        breakMedium={breakMedium}
       />
     </Grid>
   </>

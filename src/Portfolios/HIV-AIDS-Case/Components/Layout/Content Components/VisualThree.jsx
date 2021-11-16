@@ -6,6 +6,7 @@ export const VisualThree = ({
   dataByAge,
   visualProps,
   breakSmall,
+  breakMedium,
 }) => (
   <Paper
     sx={{
@@ -21,7 +22,8 @@ export const VisualThree = ({
       dataTopology={dataTopology}
       dataByAge={dataByAge}
       figureProps={visualProps.three}
-      breakingPoint={breakSmall}
+      breakingPointSm={breakSmall}
+      breakingPointMd={breakMedium}
     />
   </Paper>
 );

@@ -28,7 +28,8 @@ export const Render = ({
   dataPerProvince,
   figureProps,
   dataByAge,
-  breakingPoint,
+  breakingPointSm,
+  breakingPointMd,
 }) => {
   const [topic, setTopic] = useState("HIV");
   const [isEnter, setIsEnter] = useState(false);
@@ -73,7 +74,7 @@ export const Render = ({
       data={ageRowByProvince}
       provinceList={getProvinces()}
       catagories={catagories}
-      breakingPoint={breakingPoint}
+      breakingPoint={breakingPointSm}
     >
       <svg preserveAspectRatio="xMinYMin" viewBox={`0 0 ${width} ${height}`}>
         {/* <Decoration pathGenerator={pathGenerator} /> */}
@@ -89,13 +90,18 @@ export const Render = ({
           onMouseMoveHandler={onMouseMoveHandler}
           onMouseLeaveHandler={onMouseLeaveHandler}
         />
-        <Legend colorScale={colorScale} innerWidth={innerWidth} />
+        <Legend
+          colorScale={colorScale}
+          innerWidth={innerWidth}
+          breakingPointSm={breakingPointSm}
+          breakingPointMd={breakingPointMd}
+        />
       </svg>
       <Tooltip
         provinceData={provinceData}
         position={mousePosition}
         isEnter={isEnter}
-        breakingPoint={breakingPoint}
+        breakingPoint={breakingPointSm}
       />
     </MapLayout>
   );

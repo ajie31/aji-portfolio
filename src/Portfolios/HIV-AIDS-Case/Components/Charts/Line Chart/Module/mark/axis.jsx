@@ -2,6 +2,9 @@ import { ThemeProvider, Typography } from "@mui/material";
 import { TextTheme } from "../../../../../Style/theme";
 import styles from "../../../../../Style/main.module.css";
 import { HtmlTooltip } from "../tooltips/tooltip";
+
+const widthCollider = (breakingPoint) => (breakingPoint ? 50 : 20);
+
 export const Axis = (props) => {
   const {
     innerWidth,
@@ -15,6 +18,7 @@ export const Axis = (props) => {
     position,
     axisNumFormat,
     dataNumFormat,
+    breakSmall,
   } = props;
 
   return (
@@ -72,8 +76,8 @@ export const Axis = (props) => {
       <line
         pointerEvents="none"
         stroke="white"
-        opacity=".6"
-        strokeWidth="3"
+        opacity=".7"
+        strokeWidth="10"
         y2={innerHeight}
         x1={position}
         x2={position}
@@ -111,10 +115,10 @@ export const Axis = (props) => {
           <g>
             <rect
               key={tick}
-              x={xScale(tick) - 10}
+              x={xScale(tick) - widthCollider(breakSmall) / 2}
               y={0}
               opacity="0"
-              width="20"
+              width={widthCollider(breakSmall)}
               height={innerHeight}
               onMouseEnter={() => handleOnMouEnter(xScale(tick))}
             />

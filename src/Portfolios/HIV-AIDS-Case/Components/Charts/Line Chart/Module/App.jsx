@@ -36,7 +36,7 @@ const dataColor = { HIV: "#f77c29", AIDS: "#847eba" };
 //#endregion
 
 export const App = (props) => {
-  const { data, figureProps } = props;
+  const { data, figureProps, breakSmall } = props;
   const [position, setPosition] = useState(-10);
   // const [selectedData, setSelectedData] = useState("Missing Data");
 
@@ -120,6 +120,7 @@ export const App = (props) => {
             position={position}
             axisNumFormat={axisNumFormat}
             dataNumFormat={dataNumFormat}
+            breakSmall={breakSmall}
           />
           <Legend dataColor={dataColor} />
         </g>

@@ -3,6 +3,7 @@ export const VisualTwo = ({
   MultiLineChart,
   dataPerProvince,
   visualProps,
+  breakSmall,
 }) => (
   <Paper
     sx={{
@@ -17,6 +18,7 @@ export const VisualTwo = ({
       className="cases-on-provinces"
       data={dataPerProvince}
       figureProps={visualProps.two}
+      breakSmall={breakSmall}
     />
   </Paper>
 );

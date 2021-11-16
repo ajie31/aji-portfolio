@@ -96,6 +96,7 @@ export const HivAidsCase = () => {
           dataByAge={dataByAge}
           theme={TextTheme}
           breakSmall={breakSmall}
+          breakMedium={breakMedium}
         />
         {/* container */}
       </Grid>

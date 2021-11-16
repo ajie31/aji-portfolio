@@ -5,7 +5,8 @@ export const Choropleth = ({
   dataTopology,
   figureProps,
   dataByAge,
-  breakingPoint,
+  breakingPointSm,
+  breakingPointMd,
 }) => {
   return (
     <Render
@@ -13,7 +14,8 @@ export const Choropleth = ({
       dataPerProvince={dataPerProvince}
       figureProps={figureProps}
       dataByAge={dataByAge}
-      breakingPoint={breakingPoint}
+      breakingPointSm={breakingPointSm}
+      breakingPointMd={breakingPointMd}
     />
   );
 };

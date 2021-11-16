@@ -2,7 +2,10 @@ const padding = 0.7;
 
 const offsetY = 22;
 
+const dynamicScale = (Sm, Md) => (Sm ? 2 : Md ? 1.7 : 1);
+
 const barWidth = 60;
+const offsetX = (Sm, Md) => (Sm ? 120 : Md ? barWidth * 1.7 : barWidth);
 const barHeight = 8;
 const height = 12;
 
@@ -10,13 +13,18 @@ const mainColor = "#635F5D";
 const secondaryColor = " #8E8883";
 const textPadding = 10;
 
-export const Legend = ({ colorScale, innerWidth }) => {
+export const Legend = ({
+  colorScale,
+  innerWidth,
+  breakingPointSm,
+  breakingPointMd,
+}) => {
   const ticks = ["No Data", ...colorScale.ticks(5)];
   return (
     <g
       transform={`translate(${
-        (innerWidth - barWidth * 5 + 10) / 2
-      },${offsetY})`}
+        (innerWidth - offsetX(breakingPointSm, breakingPointMd) * 5) / 2
+      },${offsetY}) scale( ${dynamicScale(breakingPointSm, breakingPointMd)} )`}
       className="legend-group"
     >
       {ticks.map((tick, i) => {

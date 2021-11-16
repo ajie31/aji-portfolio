@@ -9,6 +9,8 @@ const styleTooltips = makeStyles((theme) => ({
     pointerEvents: "none",
   },
 }));
+
+const yearPointerRadius = (breakSmall) => (breakSmall ? 50 : 20);
 export const SelectedChart = (props) => {
   const {
     data,
@@ -20,6 +22,7 @@ export const SelectedChart = (props) => {
     yValue,
     dateFormat,
     dataNumFormat,
+    breakSmall,
   } = props;
 
   const tooltipClass = styleTooltips();
@@ -63,7 +66,7 @@ export const SelectedChart = (props) => {
             fill={dataFill}
             stroke="#8E8883"
             strokeWidth="0.1"
-            r="6"
+            r={yearPointerRadius(breakSmall)}
           />
         </g>
       ))}

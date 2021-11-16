@@ -1,4 +1,10 @@
-export const VisualOne = ({ Paper, LineChart, dataSum, visualProps }) => (
+export const VisualOne = ({
+  Paper,
+  LineChart,
+  dataSum,
+  visualProps,
+  breakSmall,
+}) => (
   <Paper
     sx={{
       pt: 2,
@@ -8,6 +14,10 @@ export const VisualOne = ({ Paper, LineChart, dataSum, visualProps }) => (
     }}
     elevation={0}
   >
-    <LineChart data={dataSum} figureProps={visualProps.one} />
+    <LineChart
+      data={dataSum}
+      figureProps={visualProps.one}
+      breakSmall={breakSmall}
+    />
   </Paper>
 );

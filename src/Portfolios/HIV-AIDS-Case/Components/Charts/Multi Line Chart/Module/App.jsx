@@ -27,7 +27,7 @@ const dataColor = { HIV: "#b63c02", AIDS: "#847eba" };
 const rowByProvince = new Map();
 
 export const App = (props) => {
-  const { data, figureProps } = props;
+  const { data, figureProps, breakSmall } = props;
   const [topic, setTopic] = useState("HIV");
   const [province, setProvince] = useState(null);
 
@@ -168,6 +168,7 @@ export const App = (props) => {
                   yValue={yValue}
                   dateFormat={dateFormat}
                   dataNumFormat={dataNumFormat}
+                  breakSmall={breakSmall}
                 />
               </g>
             ) : null}
