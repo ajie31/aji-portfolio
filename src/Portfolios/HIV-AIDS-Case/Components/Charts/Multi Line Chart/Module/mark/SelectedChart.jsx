@@ -7,10 +7,11 @@ const styleTooltips = makeStyles((theme) => ({
   tooltip: {
     backgroundColor: "#8E8883",
     pointerEvents: "none",
+    top: "25px",
   },
 }));
 
-const yearPointerRadius = (breakSmall) => (breakSmall ? 50 : 20);
+const yearPointerRadius = (breakSmall) => (breakSmall ? 40 : 20);
 export const SelectedChart = (props) => {
   const {
     data,
@@ -51,6 +52,7 @@ export const SelectedChart = (props) => {
             arrow
             disableInteractive
             enterTouchDelay={50}
+            open
           >
             <circle
               cx={xScale(xValue(d))}
@@ -66,7 +68,7 @@ export const SelectedChart = (props) => {
             fill={dataFill}
             stroke="#8E8883"
             strokeWidth="0.1"
-            r={10}
+            r={7}
           />
         </g>
       ))}
