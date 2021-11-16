@@ -55,7 +55,7 @@ export const SelectedChart = (props) => {
             <circle
               cx={xScale(xValue(d))}
               cy={yScale(yValue(d))}
-              r="20"
+              r={yearPointerRadius(breakSmall)}
               fill="transparent"
             />
           </Tooltip>
@@ -66,7 +66,7 @@ export const SelectedChart = (props) => {
             fill={dataFill}
             stroke="#8E8883"
             strokeWidth="0.1"
-            r={yearPointerRadius(breakSmall)}
+            r={10}
           />
         </g>
       ))}
