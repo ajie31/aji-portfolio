@@ -2,9 +2,9 @@ import { extent, max, scaleLog, scaleTime, timeFormat, format } from "d3";
 import { useMemo, useState } from "react";
 
 import { Layout } from "./Layout/Layout";
-import { Chart } from "./Chart/chart";
-import { SelectedChart } from "./Chart/SelectedChart";
-import { Axis } from "./Chart/axis";
+import { Chart } from "./mark/chart";
+import { SelectedChart } from "./mark/SelectedChart";
+import { Axis } from "./mark/axis";
 
 import { mergePerProvince, getSortedProvince } from "../../../Data/dataProcess";
 

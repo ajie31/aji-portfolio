@@ -8,9 +8,9 @@ import {
   format,
 } from "d3";
 import { useState, useMemo, useCallback } from "react";
-import { Legend } from "./chart/legend";
-import { Axis } from "./chart/axis";
-import { Chart } from "./chart/chart";
+import { Legend } from "./mark/legend";
+import { Axis } from "./mark/axis";
+import { Chart } from "./mark/chart";
 import { Layout } from "./layout";
 import { ToolsOverlay } from "./tooltips/toolsOverlay";
 // #region Basic Dimension
