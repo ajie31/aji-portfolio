@@ -1,4 +1,4 @@
-import { createTheme, useMediaQuery } from "@mui/material";
+import { createTheme } from "@mui/material";
 const mainPalette = createTheme({
   palette: {
     background: {
@@ -17,7 +17,8 @@ export const breaks = createTheme({
       xs: 460,
       sm: 600,
       md: 900,
-      lg: 1200,
+      ml: 1080,
+      lg: 1300,
       xl: 1536,
     },
   },
@@ -62,7 +63,11 @@ export const TextTheme = createTheme(mainPalette, {
       color: mainPalette.palette.text.secondary,
       fontSize: "14px",
     },
-
+    subtitle1: {
+      fontFamily: ["Domine", "serif"].join(","),
+      fontSize: "14px",
+      color: mainPalette.palette.text.secondary,
+    },
     subtitle2: {
       fontFamily: ["Domine", "serif"].join(","),
       fontSize: "14px",

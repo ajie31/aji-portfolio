@@ -67,8 +67,6 @@ export const HivAidsCase = () => {
     <Container
       style={{ maxWidth: breakSmall ? "100%" : breakMedium ? "80%" : "89%" }}
     >
-      <Header />
-
       <Grid container>
         {/* Title */}
         <Title

@@ -23,7 +23,7 @@ const styleTableContainer = {
 };
 const collapseStyle = { overflow: "visible", transform: "rotateX(180deg)" };
 const tableBreakPoint = (breakingPoint) => {
-  return { minWidth: breakingPoint ? 430 : 920 };
+  return { minWidth: breakingPoint ? "100%" : "920px" };
 };
 const collapseButtonStyle = { width: "100%", padding: "8px" };
 

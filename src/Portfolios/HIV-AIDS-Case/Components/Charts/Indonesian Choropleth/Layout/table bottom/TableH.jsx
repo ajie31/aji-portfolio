@@ -1,5 +1,5 @@
 const headCellRow = { backgroundColor: "#ebebeb" };
-const cellStyle = { maxWidth: 180 };
+const cellStyle = { width: "200px" };
 export const TableH = ({
   catagories,
   breakingPoint,
@@ -11,7 +11,7 @@ export const TableH = ({
 }) => (
   <TableHead>
     <TableRow style={headCellRow}>
-      <TableCell style={cellStyle}>Provinsi</TableCell>
+      <TableCell>Provinsi</TableCell>
       {!breakingPoint ? (
         catagories.map((c) => (
           <TableCell key={c} align="right">
