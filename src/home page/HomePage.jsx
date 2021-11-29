@@ -42,6 +42,8 @@ const myWorks = [
   {
     title: "HIV dan AIDS Di Indonesia",
     url: "/portfolio/HIV_AIDS_case",
+    imgUrl:
+      "https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/previewHIVAIDS.png",
     description:
       "Data visual tentang HIV dan AIDS secara umum dan peninjauan kasus di Indonesia ",
   },

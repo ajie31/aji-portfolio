@@ -18,7 +18,7 @@ export const TheCard = ({ headClasses, properties }) => {
               sx={{
                 maxHeight: "300px",
               }}
-              image="https://source.unsplash.com/random"
+              image={properties.imgUrl}
               alt="random"
             />
           </a>
