@@ -38,7 +38,7 @@ export const AboutSection = ({ Paper, ThemeProvider, Typography, theme }) => (
       <br />
       <div style={{ display: "flex", justifyContent: "right" }}>
         <Typography variant="captionSource">
-          sumber : Profil Kesehatan Indonesia Tahun 2020
+          sumber : Profil Kesehatan Indonesia Tahun 2020 dari Kemenkes
         </Typography>
       </div>
     </ThemeProvider>
