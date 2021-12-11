@@ -6,7 +6,10 @@ import { Chart } from "./mark/chart";
 import { SelectedChart } from "./mark/SelectedChart";
 import { Axis } from "./mark/axis";
 
-import { mergePerProvince, getSortedProvince } from "../../../Data/dataProcess";
+import {
+  mergePerProvince,
+  getSortedProvince,
+} from "../../../Data/HIV AIDS/dataProcess";
 
 // #region Basic Dimension
 const margin = { top: 55, right: 40, bottom: 36, left: 100 };

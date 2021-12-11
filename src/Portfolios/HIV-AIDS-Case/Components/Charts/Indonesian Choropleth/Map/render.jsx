@@ -11,7 +11,10 @@ import { MapMark } from "./mapMark";
 import { Legend } from "./legend";
 import { MapLayout } from "../Layout/mapLayout";
 import { Tooltip } from "../Tooltips/Tooltip";
-import { getProvinces, getKeyDataByAge } from "../../../Data/dataProcess";
+import {
+  getProvinces,
+  getKeyDataByAge,
+} from "../../../Data/HIV AIDS/dataProcess";
 
 const margin = { top: 100, right: 20, bottom: 20, left: 20 };
 

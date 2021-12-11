@@ -11,19 +11,18 @@ import { LineChart } from "./Components/Charts/Line Chart/lineChart";
 import { MultiLineChart } from "./Components/Charts/Multi Line Chart/multiLineChart";
 import { Choropleth } from "./Components/Charts/Indonesian Choropleth/Choropleth";
 
-import { Header } from "../../Layout/Header";
 import { Title } from "./Components/Layout/Title";
 import { Content } from "./Components/Layout/Content";
 
-import { GetDataAIDS } from "./Components/Data/getDataAIDS";
-import { GetDataHIV } from "./Components/Data/getDataHIV";
+import { GetDataAIDS } from "./Components/Data/HIV AIDS/getDataAIDS";
+import { GetDataHIV } from "./Components/Data/HIV AIDS/getDataHIV";
 import { GetDataTopology } from "./Components/Data/getDataTopology";
 
 import {
   sumAllProvincesAnnualData,
   MultiLineRowData,
   currentProvinceData,
-} from "./Components/Data/dataProcess";
+} from "./Components/Data/HIV AIDS/dataProcess";
 
 import { TextTheme, breaks } from "./Style/theme";
 
