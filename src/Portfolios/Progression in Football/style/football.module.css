@@ -1,0 +1,25 @@
+.keterangan {
+  margin: 0;
+}
+.konten-keterangan-ul {
+  padding-left: 1rem;
+  list-style-type: square;
+}
+.konten-keterangan-li {
+  padding-bottom: 1rem;
+}
+.konten-keterangan-li > span {
+  margin: 0;
+  font-weight: 500;
+}
+.konten-keterangan-li > ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.konten-keterangan-li > ul > li > p {
+  list-style-type: none;
+  padding: 0;
+  margin: 0.5rem 0;
+  font-size: small;
+}

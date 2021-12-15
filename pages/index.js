@@ -39,6 +39,11 @@ export default function Home() {
           href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap"
           rel="stylesheet"
         ></link>
+        <link
+          href="http://fonts.cdnfonts.com/css/itc-franklin-gothic-std"
+          rel="stylesheet"
+        ></link>
+        <link href="http://fonts.cdnfonts.com/css/georgia" rel="stylesheet" />
       </Head>
 
       <Container style={{ padding: 0 }} maxWidth="xxl">
