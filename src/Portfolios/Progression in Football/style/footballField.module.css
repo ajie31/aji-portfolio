@@ -1,0 +1,12 @@
+.turf {
+  fill: #131521;
+}
+.line {
+  stroke: #6d6d71;
+  stroke-width: 0.75;
+  fill: none;
+}
+.dot {
+  stroke: none;
+  fill: #6d6d71;
+}

@@ -1,15 +1,16 @@
 import { Grid, Box, Container, Typography } from "@mui/material";
-import { GetDataPass } from "./Data/getdata";
+import { GetDataPass, GetDataTouchCarries } from "./Data/getdata";
 import { ScatterPlot } from "./Components/Scatter plot/scatterPlot";
 import { ScatterPlotDynamic } from "./Components/Scatter Plot Dynamic/scatterPlotDynamic";
 import styles from "./style/football.module.css";
-import { margin } from "@mui/system";
+import { FootballField } from "./Components/Football Field/FootballField";
 
 const scatterPlotProp = { width: 720, height: 500 };
 
 export const FootballPlot = () => {
   const passing_data = GetDataPass();
-  if (!passing_data) {
+  const touches = GetDataTouchCarries();
+  if (!passing_data || !touches) {
     return <pre>Loading...</pre>;
   }
 
@@ -33,9 +34,19 @@ export const FootballPlot = () => {
             <ScatterPlot data={passing_data} />
           </Box>
           <Box
-            style={{ backgroundColor: "grey", height: "auto", width: "100%" }}
+            style={{
+              backgroundColor: "grey",
+              height: "auto",
+              width: "100%",
+              marginBottom: "1rem",
+            }}
           >
             <ScatterPlotDynamic data={passing_data} />
+          </Box>
+          <Box
+            style={{ backgroundColor: "grey", height: "auto", width: "100%" }}
+          >
+            <FootballField data={touches} />
           </Box>
         </Grid>
 
