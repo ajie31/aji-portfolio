@@ -1,4 +1,4 @@
-import { FootballPlot } from "../../../src/Portfolios/Progression in Football/Index";
+import { FootballPlot } from "../../../src/Portfolios/Progression in Football/footballPlot";
 
 const Index = () => {
   return <FootballPlot />;
