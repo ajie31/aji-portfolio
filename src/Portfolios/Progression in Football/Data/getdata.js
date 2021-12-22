@@ -6,6 +6,8 @@ const DATA_URI_PASS =
 const DATA_URI_TOUCH =
   "https://gist.githubusercontent.com/ajie31/049033f2ee3f8b4119e937a754b6f656/raw/touchesCarries.csv";
 
+const DATA_URI_CP =
+  "https://gist.githubusercontent.com/ajie31/049033f2ee3f8b4119e937a754b6f656/raw/processedPassCarries18thWeek.csv";
 //ScaPassLive,GcaPassLive,SCA,GCA,DrbSucc,DrbAtt,Poss
 export const GetDataPass = () => {
   const [data, setData] = useState(null);
@@ -58,8 +60,51 @@ export const GetDataTouchCarries = () => {
   //CarrTotDist,CarrPrgDist,CarrProg,Carr1/3,CPA
   useEffect(() => {
     csv(DATA_URI_TOUCH, row).then((touch_data) => {
-      console.log(touch_data);
+      // console.log(touch_data);
       setData(touch_data);
+    });
+  }, []);
+
+  return data;
+};
+
+export const GetProcessedData = () => {
+  const [data, setData] = useState(null);
+  let val = 0;
+  const row = (d) => {
+    const keys = [
+      "Squad",
+      "# Pl",
+      "Poss",
+      "90s",
+      "Carries",
+      "CTotDist",
+      "CPrgDist",
+      "CProg",
+      "C 1/3",
+      "CPA",
+      "DSucc",
+      "DAtt",
+      "DPassed",
+      "PCmp",
+      "PAtt",
+      "PTotDist",
+      "PPrgDist",
+      "PProg",
+      "P 1/3",
+      "PPA",
+      "CrsPA",
+    ];
+    keys.map((key) => (key !== "Squad" ? (d[key] = +d[key]) : d[key]));
+
+    return d;
+  };
+  //Squad,Poss,90s,Touches,Def 3rd,Mid 3rd,Att 3rd,Att Pen,Carries,
+  //CarrTotDist,CarrPrgDist,CarrProg,Carr1/3,CPA
+  useEffect(() => {
+    csv(DATA_URI_CP, row).then((selected_data) => {
+      console.log(selected_data);
+      // setData(selected_data);
     });
   }, []);
 
