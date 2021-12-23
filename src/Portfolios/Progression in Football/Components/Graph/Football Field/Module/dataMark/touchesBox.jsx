@@ -1,6 +1,6 @@
 export const TouchesBox = ({ dataTouch, value }) => {
   const values = value(dataTouch);
-  console.log(values);
+
   return (
     <g>
       {values.map((t, i) => (

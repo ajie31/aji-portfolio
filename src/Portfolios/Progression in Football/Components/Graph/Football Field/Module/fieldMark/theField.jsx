@@ -1,4 +1,4 @@
-import styles from "../../../../style/footballField.module.css";
+import styles from "../../../../../style/footballField.module.css";
 import { PenaltyBox } from "./penaltyBox";
 export const TheField = () => (
   <g>

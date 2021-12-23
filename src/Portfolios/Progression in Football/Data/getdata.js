@@ -104,7 +104,7 @@ export const GetProcessedData = () => {
   useEffect(() => {
     csv(DATA_URI_CP, row).then((selected_data) => {
       console.log(selected_data);
-      // setData(selected_data);
+      setData(selected_data);
     });
   }, []);
 
