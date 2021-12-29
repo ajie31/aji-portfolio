@@ -83,6 +83,8 @@ export const GetProcessedData = () => {
       "CProg",
       "C 1/3",
       "CPA",
+      "CMis",
+      "CDis",
       "DSucc",
       "DAtt",
       "DPassed",
@@ -94,13 +96,23 @@ export const GetProcessedData = () => {
       "P 1/3",
       "PPA",
       "CrsPA",
+      "SCA",
+      "SCADrib",
+      "SCAPassLive",
+      "SCAPassDead",
+      "GCA",
+      "GCADrib",
+      "GCAPassLive",
+      "GCAPassDead",
+      "xG",
+      "Pts",
     ];
     keys.map((key) => (key !== "Squad" ? (d[key] = +d[key]) : d[key]));
 
     return d;
   };
-  //Squad,Poss,90s,Touches,Def 3rd,Mid 3rd,Att 3rd,Att Pen,Carries,
-  //CarrTotDist,CarrPrgDist,CarrProg,Carr1/3,CPA
+  // Squad,# Pl,Poss,90s,Carries,CTotDist,CPrgDist,CProg,C 1/3,CPA
+  // ,CMis,CDis,DSucc,DAtt,DPassed,PCmp,PAtt,PTotDist,PPrgDist,PProg,P 1/3,PPA,CrsPA
   useEffect(() => {
     csv(DATA_URI_CP, row).then((selected_data) => {
       console.log(selected_data);

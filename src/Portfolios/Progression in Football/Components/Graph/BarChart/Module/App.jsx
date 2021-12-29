@@ -1,10 +1,8 @@
-import { Grid } from "@mui/material";
 import { scaleLinear, scaleBand } from "d3";
-import {
-  progressByDistance,
-  progressByActions,
-} from "../../../../Data/dataProcess";
+import { dataProcess } from "../../../../Data/dataProcess";
 import { Chart } from "./Mark/chart";
+import { useState } from "react";
+import { Layout } from "./Layout/layout";
 
 const yValue = (d) => d["Squad"];
 const xValue = (d) => d["Poss"];
@@ -12,6 +10,7 @@ const xValue = (d) => d["Poss"];
 export const App = ({ data }) => {
   // const dataByDistance = progressByDistance(data);
   // console.log(dataByDistance);
+  const [topic, setTopic] = useState("byDistance");
 
   const height = 700;
   const width = 750;
@@ -27,24 +26,48 @@ export const App = ({ data }) => {
     .domain(data.map(yValue))
     .padding(0.15);
 
+  const handleTopicChange = (event) => setTopic(event.target.value);
+
   return (
-    <Grid container>
+    <Layout
+      topic={topic}
+      items={dataProcess}
+      handleTopicChange={handleTopicChange}
+      title="[title here later]"
+      description="description here later"
+    >
+      <svg width={width} height={height}>
+        <Chart
+          data={data}
+          PassObject={dataProcess[topic].pass}
+          CarryObject={dataProcess[topic].carry}
+          yScale={yScale}
+          xScale={xScale}
+          xValue={xValue}
+          yValue={yValue}
+          margin={margin}
+          innerWidth={innerWidth}
+        />
+      </svg>
+    </Layout>
+    /**<Grid container>
+   
       <Grid xs={12} item></Grid>
       <Grid xs={12} item>
         <svg width={width} height={height}>
           <Chart
             data={data}
-            progressByDistance={progressByDistance}
-            progressByActions={progressByActions}
+            PassObject={dataProcess[topic].pass}
+            CarryObject={dataProcess[topic].carry}
             yScale={yScale}
             xScale={xScale}
             xValue={xValue}
             yValue={yValue}
             margin={margin}
             innerWidth={innerWidth}
-          ></Chart>
+          />
         </svg>
       </Grid>
-    </Grid>
+    </Grid>*/
   );
 };
