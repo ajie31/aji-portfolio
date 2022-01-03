@@ -15,20 +15,6 @@ export const PassChart = ({
         let xOffset = xScale(100);
         return (
           <g key={d["Squad"]} className={d["Squad"]}>
-            {/* {PassObject(d).map((chart) => (
-              <rect
-                key={"" + d["Squad"] + " " + chart.name}
-                x={xOffset}
-                y={yScale(yValue(d))}
-                width={widthVal(chart)}
-                height={yScale.bandwidth()}
-                fill={chart.color}
-              >
-                {(xOffset += widthVal(chart))}
-                <title>{`${yValue(d)} : ${chart.action}`}</title>
-               
-              </rect>
-            ))} */}
             <rect
               key={"" + d["Squad"] + " " + chart.name}
               x={xOffset}
@@ -64,6 +50,45 @@ export const PassChart = ({
           </g>
         );
       })}
+    </g>
+  );
+};
+
+export const PassChart1 = ({
+  d,
+  PassObject,
+  yScale,
+  xScale,
+  totalWidth,
+  xValue,
+  yValue,
+  xOffset,
+}) => {
+  const chart = PassObject(d)[0];
+
+  return (
+    <g
+      transform={`translate(${xOffset},0)`}
+      key={d["Squad"]}
+      className={d["Squad"]}
+    >
+      <rect
+        key={"" + d["Squad"] + " " + chart.name}
+        width={xScale(xValue(d))}
+        height={yScale.bandwidth()}
+        fill={chart.color}
+      >
+        <title>{`${yValue(d)} : ${chart.action}`}</title>
+      </rect>
+      {/* <rect
+        key={"" + d["Squad"] + " " + chart2.name}
+        x={widthVal}
+        width={totalWidth - widthVal}
+        height={yScale.bandwidth()}
+        fill={chart2.color}
+      >
+        <title>{`${yValue(d)} : ${chart2.action}`}</title>
+      </rect> */}
     </g>
   );
 };

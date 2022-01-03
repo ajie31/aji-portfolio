@@ -22,7 +22,7 @@ export const Chart = (props) => {
             cx={xScale(xValue(d))}
             cy={yScale(yValue(d))}
             fill={`url(#${d["Squad"].replace(/\s/g, "")})`}
-            r={r}
+            r={2}
           >
             <title>{d["Squad"]}</title>
           </circle>

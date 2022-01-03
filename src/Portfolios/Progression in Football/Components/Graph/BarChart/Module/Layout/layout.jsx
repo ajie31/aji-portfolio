@@ -1,4 +1,5 @@
 import { Grid, FormControl, Select, InputLabel, MenuItem } from "@mui/material";
+import { dataProcess } from "../../../../../Data/dataProcess";
 import styles from "../../../../../style/barChart.module.css";
 
 export const Layout = ({
@@ -29,7 +30,7 @@ export const Layout = ({
   );
 };
 
-const Menu = ({ items, topic, handleTopicChange }) => (
+const Menu = ({ topic, handleTopicChange }) => (
   <div className={styles["dropdown-menu"]}>
     <FormControl fullWidth>
       <InputLabel id="select-topic-progression-label">Topik</InputLabel>
@@ -40,8 +41,13 @@ const Menu = ({ items, topic, handleTopicChange }) => (
         label="Topik"
         onChange={handleTopicChange}
       >
-        <MenuItem value={"byDistance"}>Berdasarkan Jarak</MenuItem>
-        <MenuItem value={"byAction"}>Berdasarkan Aksi</MenuItem>
+        {Object.keys(dataProcess).map((k) => (
+          <MenuItem key={k} value={dataProcess[k].topic}>
+            {dataProcess[k].label}
+          </MenuItem>
+        ))}
+        {/* <MenuItem value={"byDistance"}>Berdasarkan Jarak</MenuItem>
+        <MenuItem value={"byAction"}>Berdasarkan Aksi</MenuItem> */}
       </Select>
     </FormControl>
   </div>

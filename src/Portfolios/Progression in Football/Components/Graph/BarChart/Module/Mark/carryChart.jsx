@@ -17,21 +17,6 @@ export const CarryChart = ({
 
         return (
           <g key={d["Squad"]} className={d["Squad"]}>
-            {/* {CarryObject(d).map((chart) => (
-              <rect
-                key={"" + d["Squad"] + " " + chart.name}
-                x={xOffset - widthVal(chart)}
-                y={yScale(yValue(d))}
-                width={widthVal(chart)}
-                height={yScale.bandwidth()}
-                fill={chart.color}
-              >
-                {(xOffset -= widthVal(chart))}
-
-                <title>{`${yValue(d)} : ${chart.action}`}</title>
-              </rect>
-            ))} */}
-
             <rect
               key={"" + d["Squad"] + " " + chart.name}
               x={xOffset - widthVal}
@@ -68,6 +53,46 @@ export const CarryChart = ({
           </g>
         );
       })}
+    </g>
+  );
+};
+
+export const CarryChart1 = ({
+  d,
+  CarryObject,
+  yScale,
+  xScale,
+  yValue,
+  xValue,
+  xOffset,
+}) => {
+  xScale();
+  const chart = CarryObject(d)[0];
+
+  return (
+    <g
+      transform={`translate(${xOffset},0) scale(-1,1)`}
+      key={d["Squad"]}
+      className={d["Squad"]}
+    >
+      <rect
+        key={"" + d["Squad"] + " " + chart.name}
+        x={0}
+        width={xScale(xValue(d))}
+        height={yScale.bandwidth()}
+        fill={chart.color}
+      >
+        <title>{`${yValue(d)} : ${chart.action}`}</title>
+      </rect>
+      {/* <rect
+        key={"" + d["Squad"] + " " + chart2.name}
+        x={widthVal}
+        width={totalWidth - widthVal}
+        height={yScale.bandwidth()}
+        fill={chart2.color}
+      >
+        <title>{`${yValue(d)} : ${chart2.action}`}</title>
+      </rect> */}
     </g>
   );
 };
