@@ -25,8 +25,8 @@ export const FootballPlot = () => {
   }
 
   return (
-    <Container maxWidth="lg">
-      <Grid spacing={2} container>
+    <Container style={{ padding: 0 }} maxWidth="lg">
+      <Grid spacing={0} container>
         <Grid item xs={12} md={12}>
           <Box
             style={{

@@ -13,6 +13,7 @@ import { Chart } from "./Mark/chart";
 import { useState, useEffect } from "react";
 import { Layout } from "./Layout/layout";
 import { Axis } from "./Axis/axis";
+import { margin } from "@mui/system";
 
 let passWidthbarMemo;
 let carriesWidthbarMemo;
@@ -26,21 +27,26 @@ export const App = ({ data }) => {
   const height = 900;
   const width = 750;
 
-  const margin = { top: 76, right: 16, bottom: 0, left: 16 };
-  const innerWidth = width - margin.left - margin.right;
-  const innerHeight = height - margin.top - margin.bottom;
+  const marginAll = { top: 76, right: 12, bottom: 0, left: 12 };
+  const marginChart = { top: 0, right: 82, bottom: 0, left: 82 };
+  const innerWidth = width - marginAll.left - marginAll.right;
+  const innerWidthChart =
+    width -
+    (marginAll.left + marginChart.left) -
+    (marginAll.right + marginChart.right);
+  const innerHeight = height - marginAll.top - marginAll.bottom;
 
   const yValue = (d) => d["Squad"];
   const xValuePass = (d) => dataProcess[topic].pass(d).value();
   const xValueCarry = (d) => dataProcess[topic].carry(d).value();
 
   const xScalePass = scaleLinear()
-    .range([0, innerWidth / 2.5])
+    .range([0, innerWidthChart / 2.5])
     .domain([0, max(sorted, xValuePass)])
     .nice();
 
   const xScaleCarry = scaleLinear()
-    .range([0, innerWidth / 2.5])
+    .range([0, innerWidthChart / 2.5])
     .domain([0, max(sorted, xValueCarry)])
     .nice();
 
@@ -62,6 +68,8 @@ export const App = ({ data }) => {
       setSorted(
         data.slice().sort((a, b) => descending(xValuePass(a), xValuePass(b)))
       ),
+    poss: () =>
+      setSorted(data.slice().sort((a, b) => descending(a["Poss"], b["Poss"]))),
   };
 
   const passWidthBarTemp = [];
@@ -112,15 +120,19 @@ export const App = ({ data }) => {
         viewBox={`0 0 ${width} ${height}`}
         preserveAspectRatio="xMidYMid meet"
       >
-        <g transform={`translate(${margin.left},${margin.top})`}>
+        <g
+          transform={`translate(${marginAll.left + marginChart.left},${
+            marginAll.top + marginChart.top
+          })`}
+        >
           <Chart
             data={sorted}
             PassObject={dataProcess[topic].pass}
             CarryObject={dataProcess[topic].carry}
             yScale={yScale}
             yValue={yValue}
-            margin={margin}
-            innerWidth={innerWidth}
+            margin={marginChart}
+            innerWidth={innerWidthChart}
             passWidthbar={passWidthbarMemo}
             carryWidthBar={carriesWidthbarMemo}
           />
@@ -134,9 +146,11 @@ export const App = ({ data }) => {
             yValue={yValue}
             meanPass={meanPass}
             meanCArry={meanCarry}
-            innerWidth={innerWidth}
+            innerWidth={innerWidthChart}
             innerHeight={innerHeight}
             handleSort={handleSort}
+            marginChart={marginChart}
+            marginAll={marginAll}
           />
         </g>
       </svg>

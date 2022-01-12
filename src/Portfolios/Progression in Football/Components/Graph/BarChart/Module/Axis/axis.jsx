@@ -12,6 +12,8 @@ export const Axis = ({
   meanCArry,
   innerWidth,
   handleSort,
+  marginChart,
+  marginAll,
 }) => {
   const fixedPass = (d) => xScalePass(xValuePass(d));
   const fixedCarry = (d) => xScaleCarry(xValueCarry(d));
@@ -43,6 +45,8 @@ export const Axis = ({
         fillCaries={fillCaries}
         strokeWidth={strokeWidth}
         handleSort={handleSort}
+        marginChart={marginChart}
+        marginAll={marginAll}
       />
       <Indicators
         data={data}
