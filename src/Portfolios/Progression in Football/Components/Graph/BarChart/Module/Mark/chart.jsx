@@ -1,54 +1,59 @@
-import { PassChart1 } from "./passChart";
-import { CarryChart1 } from "./carryChart";
+import { useEffect } from "react";
+import { selectAll, easeExpOut } from "d3";
+import { PassChart } from "./passChart";
+import { CarryChart } from "./carryChart";
+
+// delte soon
+let passWidthbarTemp;
+let carriesWidthbarTemp;
+
 export const Chart = (props) => {
   const {
     data,
     PassObject,
     CarryObject,
     yScale,
-    xScaleCarry,
-    xScalePass,
-    xValuePass,
-    xValueCarry,
     yValue,
-    margin,
     innerWidth,
+    passWidthbar,
+    carryWidthBar,
   } = props;
   // const totalWidth = xScale(xValue(d));
   const xCenter = innerWidth / 2;
-  const r = 18;
-  const xOffsetR = xCenter + r,
-    xOffsetL = xCenter - r;
-  // TODO : EDIT STYLE!!!
+  const xOffsetR = xCenter,
+    xOffsetL = xCenter;
+  const fillPass = "#8E6C8A";
+  const fillCarry = "#B396AD";
+
   return (
     <g className="group-chart">
-      {data.map((d) => (
+      {data.map((d, i) => (
         <g
           transform={`translate(0,${yScale(yValue(d))})`}
           key={`bar ${d["Squad"]}`}
           id={` chart-${d["Squad"]}`}
           className={`bar-chart`}
         >
-          <PassChart1
+          <PassChart
             d={d}
             PassObject={PassObject}
             totalWidth={innerWidth}
             yScale={yScale}
-            xScale={xScalePass}
-            xValue={xValuePass}
             yValue={yValue}
             xOffset={xOffsetR}
+            fill={fillPass}
+            width={passWidthbar ? passWidthbar[i] : 0}
           />
 
-          <CarryChart1
+          <CarryChart
             d={d}
             CarryObject={CarryObject}
             totalWidth={innerWidth}
             yScale={yScale}
-            xScale={xScaleCarry}
-            xValue={xValueCarry}
             yValue={yValue}
             xOffset={xOffsetL}
+            fill={fillCarry}
+            width={carryWidthBar ? carryWidthBar[i] : 0}
           />
         </g>
       ))}

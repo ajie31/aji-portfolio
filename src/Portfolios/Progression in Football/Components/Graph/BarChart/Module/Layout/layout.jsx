@@ -1,21 +1,23 @@
-import { Grid, FormControl, Select, InputLabel, MenuItem } from "@mui/material";
-import { dataProcess } from "../../../../../Data/dataProcess";
-import styles from "../../../../../style/barChart.module.css";
+import { Grid } from "@mui/material";
 
+import { Menu } from "./menu";
 export const Layout = ({
   topic,
   items,
   handleTopicChange,
   title,
-  description,
+  note,
+  source,
   children,
 }) => {
   return (
     <Grid container>
       <Grid xs={12} item>
-        <div className="full-width title">{title}</div>
-        <div className="full-width description">{description}</div>
-        <div className="full-width menu-axis">
+        <div className="full-width">
+          <h5 className="header-text">{title}</h5>
+        </div>
+
+        <div className="full-width">
           <Menu
             items={items}
             topic={topic}
@@ -26,29 +28,12 @@ export const Layout = ({
       <Grid xs={12} item>
         {children}
       </Grid>
+      <Grid xs={12} item>
+        <div className="full-width">
+          <span className="footer-text footer-credit">{source}</span>
+          <span className="footer-text">{note}</span>
+        </div>
+      </Grid>
     </Grid>
   );
 };
-
-const Menu = ({ topic, handleTopicChange }) => (
-  <div className={styles["dropdown-menu"]}>
-    <FormControl fullWidth>
-      <InputLabel id="select-topic-progression-label">Topik</InputLabel>
-      <Select
-        labelId="select-topic-progression-label"
-        id="select-topic"
-        value={topic}
-        label="Topik"
-        onChange={handleTopicChange}
-      >
-        {Object.keys(dataProcess).map((k) => (
-          <MenuItem key={k} value={dataProcess[k].topic}>
-            {dataProcess[k].label}
-          </MenuItem>
-        ))}
-        {/* <MenuItem value={"byDistance"}>Berdasarkan Jarak</MenuItem>
-        <MenuItem value={"byAction"}>Berdasarkan Aksi</MenuItem> */}
-      </Select>
-    </FormControl>
-  </div>
-);

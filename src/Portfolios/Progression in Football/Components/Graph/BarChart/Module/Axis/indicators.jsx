@@ -1,5 +1,5 @@
 import { UpArrowIcon, DnArrowIcon, DashIcon } from "./arrowIcon";
-
+import styles from "../../../../../style/barChart.module.css";
 export const Indicators = ({
   data,
   yScale,
@@ -12,12 +12,14 @@ export const Indicators = ({
   yValue,
   meanPass,
   meanCArry,
+  upFill,
+  dnFill,
 }) => {
   const indicator = (val, mean, pos) =>
     val < mean ? (
-      <DnArrowIcon fill="red" post={pos} />
+      <DnArrowIcon fill={dnFill} post={pos} />
     ) : val > mean ? (
-      <UpArrowIcon fill="green" post={pos} />
+      <UpArrowIcon fill={upFill} post={pos} />
     ) : (
       <DashIcon fill="grey" post={pos} />
     );
@@ -28,32 +30,25 @@ export const Indicators = ({
     `translate(${-fixedCarry(d) + xOffsetL},${yScale(yValue(d))})`;
 
   return (
-    <>
-      <g className="pass-axis-group">
-        <g className="arrow-indicator-pass">
-          {data.map((d) => (
-            <g
-              transform={positionPass(d)}
-              className={`${d["Squad"]}-indicator-pass`}
-            >
-              {indicator(xValuePass(d), meanPass)}
-            </g>
-          ))}
-        </g>
+    <g className="indicator-group" opacity={0}>
+      <g className="arrow-indicator-pass">
+        {data.map((d, i) => (
+          <g key={`${i}-indicator-pass`} transform={positionPass(d)}>
+            {indicator(Number(xValuePass(d).toFixed(3)), meanPass)}
+          </g>
+        ))}
       </g>
 
-      <g className="carry-axis-group">
-        <g className="arrow-indicator-pass">
-          {data.map((d) => (
-            <g
-              transform={positionCarry(d) + " scale(-1,1)"}
-              className={`${d["Squad"]}-indicator-carry`}
-            >
-              {indicator(xValueCarry(d), meanCArry)}
-            </g>
-          ))}
-        </g>
+      <g className="arrow-indicator-carry">
+        {data.map((d, i) => (
+          <g
+            key={`${i}-indicator-carry`}
+            transform={positionCarry(d) + " scale(-1,1)"}
+          >
+            {indicator(Number(xValueCarry(d).toFixed(3)), meanCArry)}
+          </g>
+        ))}
       </g>
-    </>
+    </g>
   );
 };

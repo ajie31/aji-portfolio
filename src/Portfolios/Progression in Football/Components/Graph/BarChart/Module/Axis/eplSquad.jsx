@@ -1,6 +1,6 @@
-export const EplSquad = ({ d, yScale, yValue, xCenter, r }) => {
+export const EplSquad = ({ d, yScale, yValue, r }) => {
   return (
-    <g transform={`translate(${xCenter},${r / 2})`}>
+    <g transform={`translate(0,${r * 2.5})`}>
       <defs>
         <pattern
           id={`${d["Squad"].replace(/\s/g, "")}-bar`}
@@ -18,6 +18,7 @@ export const EplSquad = ({ d, yScale, yValue, xCenter, r }) => {
           />
         </pattern>
       </defs>
+
       <circle
         cx={0}
         cy={yScale(yValue(d))}

@@ -12,7 +12,7 @@ import { BarChart } from "./Components/Graph/BarChart/barChart";
 
 const scatterPlotProp = { width: 720, height: 500 };
 const layOutStyle = {
-  BgColor: "#595953",
+  BgColor: "white",
   textColor: { main: "#98998E", secondary: "#BFB699" },
 };
 

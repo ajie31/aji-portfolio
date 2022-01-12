@@ -1,52 +1,112 @@
-import { scaleLinear, scaleBand, max, mean } from "d3";
+import {
+  scaleLinear,
+  scaleBand,
+  max,
+  mean,
+  descending,
+  select,
+  selectAll,
+  easeExpOut,
+} from "d3";
 import { dataProcess } from "../../../../Data/dataProcess";
 import { Chart } from "./Mark/chart";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Layout } from "./Layout/layout";
 import { Axis } from "./Axis/axis";
+
+let passWidthbarMemo;
+let carriesWidthbarMemo;
+
 export const App = ({ data }) => {
   // const dataByDistance = progressByDistance(data);
   // console.log(dataByDistance);
   const [topic, setTopic] = useState("byDistance");
+  const [sorted, setSorted] = useState(data);
 
   const height = 900;
   const width = 750;
 
-  const margin = { top: 100, right: 60, bottom: 20, left: 60 };
+  const margin = { top: 76, right: 16, bottom: 0, left: 16 };
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
   const yValue = (d) => d["Squad"];
-  const xValuePass = (d) => dataProcess[topic].pass(d)[0].value();
-  const xValueCarry = (d) => dataProcess[topic].carry(d)[0].value();
+  const xValuePass = (d) => dataProcess[topic].pass(d).value();
+  const xValueCarry = (d) => dataProcess[topic].carry(d).value();
 
   const xScalePass = scaleLinear()
     .range([0, innerWidth / 2.5])
-    .domain([0, max(data, xValuePass)])
+    .domain([0, max(sorted, xValuePass)])
     .nice();
 
   const xScaleCarry = scaleLinear()
     .range([0, innerWidth / 2.5])
-    .domain([0, max(data, xValueCarry)])
+    .domain([0, max(sorted, xValueCarry)])
     .nice();
 
   const yScale = scaleBand()
     .range([0, innerHeight])
-    .domain(data.map(yValue))
+    .domain(sorted.map(yValue))
     .padding(0.55);
 
-  const meanPass = Number(mean(data, xValuePass).toFixed(2));
-  const meanCarry = Number(mean(data, xValueCarry).toFixed(2));
+  const meanPass = Number(mean(sorted, xValuePass).toFixed(3));
+  const meanCarry = Number(mean(sorted, xValueCarry).toFixed(3));
 
   const handleTopicChange = (event) => setTopic(event.target.value);
+  const handleSort = {
+    carry: () =>
+      setSorted(
+        data.slice().sort((a, b) => descending(xValueCarry(a), xValueCarry(b)))
+      ),
+    pass: () =>
+      setSorted(
+        data.slice().sort((a, b) => descending(xValuePass(a), xValuePass(b)))
+      ),
+  };
+
+  const passWidthBarTemp = [];
+  const carryWidthBarTemp = [];
+
+  useEffect(() => {
+    select(".indicator-group")
+      .attr("opacity", 0)
+      .transition()
+      .duration(500)
+      .delay(200)
+      .attr("opacity", 1);
+
+    selectAll(".bar-chart-pass")
+      .data(sorted)
+      .transition()
+      .duration(600)
+      .ease(easeExpOut)
+      .attr("width", (d) => {
+        passWidthBarTemp.push(xScalePass(xValuePass(d)));
+        return xScalePass(xValuePass(d));
+      });
+
+    selectAll(".bar-chart-carry")
+      .data(sorted)
+      .transition()
+      .duration(600)
+      .ease(easeExpOut)
+      .attr("width", (d) => {
+        carryWidthBarTemp.push(xScaleCarry(xValueCarry(d)));
+        return xScaleCarry(xValueCarry(d));
+      });
+    passWidthbarMemo = passWidthBarTemp;
+    carriesWidthbarMemo = carryWidthBarTemp;
+  });
 
   return (
     <Layout
       topic={topic}
       items={dataProcess}
       handleTopicChange={handleTopicChange}
-      title="[title here later]"
-      description="description here later"
+      title="Perbandingan Antara Passing Dan Carries Progresif "
+      note="Pebandingan ditinjau dari sentuhan saat menggiring bola(Carries) dan sentuhan saat menerima umpan (Passing)"
+      source="Advanced data provided by StatsBomb Presented by fbref.com"
+      innerWidth={innerWidth}
     >
       <svg
         viewBox={`0 0 ${width} ${height}`}
@@ -54,20 +114,18 @@ export const App = ({ data }) => {
       >
         <g transform={`translate(${margin.left},${margin.top})`}>
           <Chart
-            data={data}
+            data={sorted}
             PassObject={dataProcess[topic].pass}
             CarryObject={dataProcess[topic].carry}
             yScale={yScale}
-            xScaleCarry={xScaleCarry}
-            xScalePass={xScalePass}
-            xValuePass={xValuePass}
-            xValueCarry={xValueCarry}
             yValue={yValue}
             margin={margin}
             innerWidth={innerWidth}
+            passWidthbar={passWidthbarMemo}
+            carryWidthBar={carriesWidthbarMemo}
           />
           <Axis
-            data={data}
+            data={sorted}
             yScale={yScale}
             xScaleCarry={xScaleCarry}
             xScalePass={xScalePass}
@@ -78,6 +136,7 @@ export const App = ({ data }) => {
             meanCArry={meanCarry}
             innerWidth={innerWidth}
             innerHeight={innerHeight}
+            handleSort={handleSort}
           />
         </g>
       </svg>
