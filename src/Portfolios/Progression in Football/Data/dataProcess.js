@@ -108,6 +108,53 @@ export const dataProcess = {
   },
 };
 
+export const dataProcessResult = {
+  passing: {
+    xValue: (d) => d["SCAPassLive"] / d["90s"],
+    yValue: (d) => d["GCAPassLive"] / d["90s"],
+    xLabel: "SCA Passing",
+    yLabel: "GCA Passing",
+  },
+  dribling: {
+    xValue: (d) => d["SCADrib"] / d["90s"],
+    yValue: (d) => d["GCADrib"] / d["90s"],
+    xLabel: "SCA Dribling",
+    yLabel: "GCA Dribling",
+  },
+};
+
+export const dataProcessPassXValue = {
+  Ground: {
+    value: (d) => d["Ground"] / d["90s"],
+    desc: "Umpan Pada ketinggian menyentuh tanah",
+    label: "Ground",
+  },
+  Low: {
+    value: (d) => d["Low"] / d["90s"],
+    desc: "Umpan Pada ketinggian di bawah bahu pemain",
+    label: "Low",
+  },
+  High: {
+    value: (d) => d["High"] / d["90s"],
+    desc: "Umpan pada ketinggian di atas bahu pemain",
+    label: "High",
+  },
+  Short: {
+    value: (d) => d["Short"] / d["90s"],
+    desc: "Umpan pada jarak 4.57m - 13.72m",
+    label: "Short",
+  },
+  Medium: {
+    value: (d) => d["Medium"] / d["90s"],
+    desc: "Umpan pada jarak 12.72m - 27.4m",
+    label: "Medium",
+  },
+  Long: {
+    value: (d) => d["Long"] / d["90s"],
+    desc: "Umpan pada jarak lebih dari 27.4m",
+    label: "Long",
+  },
+};
 // ? keys list
 /** 
 "Squad",
@@ -130,4 +177,12 @@ export const dataProcess = {
 "PProg",
 "P 1/3",
 "PPA",
-"CrsPA",*/
+"CrsPA",
+SCA	,
+SCAPassLive	,
+SCAPassDead	,
+SCADrib	,
+GCA	,
+GCAPassLive	,
+GCAPassDead	,
+GCADrib*/

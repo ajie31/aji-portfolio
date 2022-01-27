@@ -50,13 +50,12 @@ const EplLogo = ({ rEpl }) => (
   </g>
 );
 const NumberLabel = ({
-  marginAll,
   xCenter,
   yScale,
   yValue,
   r,
   fill,
-  strokeWidth = "1",
+  strokeWidth = 1,
   marginChart,
   marginAll,
   data,
@@ -73,6 +72,7 @@ const NumberLabel = ({
     >
       No.
     </text>
+
     <line
       x1={0}
       x2={-marginChart.left + marginAll.left}
@@ -82,13 +82,12 @@ const NumberLabel = ({
 
     {data.map((d, i) => (
       <text
+        key={i}
         dx={(-marginChart.left + marginAll.left) / 2}
         y={yScale(yValue(d)) + r * 2}
         dy="-.14em"
         textAnchor="middle"
         fill={fill}
-        cursor="pointer"
-        // onClick={() => handleSort.pass()}
       >
         {i + 1}
       </text>
@@ -130,6 +129,7 @@ const PossesionLabel = ({
     />
     {data.map((d, i) => (
       <text
+        key={i}
         dx={(marginChart.left - marginAll.left) / 2}
         y={yScale(yValue(d)) + r * 2}
         dy="-.14em"
@@ -184,7 +184,6 @@ export const Labels = ({
         fill={fillCaries}
         fontSize={fontSize}
         strokeWidth={strokeWidth}
-        handleSort={handleSort}
         marginChart={marginChart}
         marginAll={marginAll}
         data={data}

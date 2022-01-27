@@ -1,9 +1,10 @@
 import { extent, scaleLinear } from "d3";
-import { Grid } from "@mui/material";
 import { useState } from "react";
 import { Axis } from "./Mark/axis";
 import { Chart } from "./Mark/chart";
-import { SelectMenu } from "./Top Layout/selectMenu";
+import { dataProcessResult } from "../../../../Data/dataProcess";
+import { Layout } from "./layout/layout";
+
 // #region Basic Dimension
 const height = 500;
 const width = 700;
@@ -38,14 +39,13 @@ const circleRadius = 14;
 
 export const App = (props) => {
   const { data } = props;
-  const [xAxis, setXAxis] = useState(attributes[4]);
-  const [yAxis, setYAxis] = useState(attributes[2]);
+  const [topic, setTopic] = useState("passing");
 
   // #region axis Scale_Value
-  const xValue = xAxis.value;
-  const xAxisTitle = xAxis.label;
-  const yValue = yAxis.value;
-  const yAxisTitle = yAxis.label;
+  const xValue = dataProcessResult[topic].xValue;
+  const xAxisTitle = dataProcessResult[topic].xLabel;
+  const yValue = dataProcessResult[topic].yValue;
+  const yAxisTitle = dataProcessResult[topic].yLabel;
 
   const xScale = scaleLinear()
     .range([0, innerWidth])
@@ -56,54 +56,45 @@ export const App = (props) => {
     .domain(extent(data, yValue))
     .nice();
 
-  const callbackChangeXAxis = (event) => {
-    setXAxis(attributes[event.target.value]);
+  const handleChangeTopic = (event, newTopic) => {
+    setTopic(newTopic);
   };
-  const callbackChangeYAxis = (event) => {
-    setYAxis(attributes[event.target.value]);
-  };
+
   //#endregion
 
-  // console.log(data[0]["Population"]);
   return (
-    <Grid container>
-      <Grid xs={12} item>
-        <SelectMenu
-          label="X Axis"
-          options={attributes}
-          selectedAttr={xAxis.index}
-          onChangeAttribute={callbackChangeXAxis}
-        />
-        <SelectMenu
-          label="Y Axis"
-          options={attributes}
-          selectedAttr={yAxis.index}
-          onChangeAttribute={callbackChangeYAxis}
-        />
-      </Grid>
-      <Grid xs={12} item>
-        <svg width={width} height={height}>
-          <g transform={`translate(${margin.left},${margin.top})`}>
-            <Axis
-              innerWidth={innerWidth}
-              innerHeight={innerHeight}
-              xScale={xScale}
-              yScale={yScale}
-              xAxisTitle={xAxisTitle}
-              yAxisTitle={yAxisTitle}
-            />
+    <Layout
+      options={["passing", "dribling"]}
+      topic={topic}
+      handleChangeTopic={handleChangeTopic}
+      title="Hasil Dari Permainan Open Play"
+      note="Pebandingan ditinjau dari sentuhan saat menggiring bola(Carries) dan sentuhan saat menerima umpan (Passing)"
+      source="Advanced data provided by StatsBomb Presented by fbref.com"
+    >
+      <svg
+        viewBox={`0 0 ${width} ${height}`}
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <g transform={`translate(${margin.left},${margin.top})`}>
+          <Axis
+            innerWidth={innerWidth}
+            innerHeight={innerHeight}
+            xScale={xScale}
+            yScale={yScale}
+            xAxisTitle={xAxisTitle}
+            yAxisTitle={yAxisTitle}
+          />
 
-            <Chart
-              data={data}
-              xScale={xScale}
-              yScale={yScale}
-              xValue={xValue}
-              yValue={yValue}
-              r={circleRadius}
-            />
-          </g>
-        </svg>
-      </Grid>
-    </Grid>
+          <Chart
+            data={data}
+            xScale={xScale}
+            yScale={yScale}
+            xValue={xValue}
+            yValue={yValue}
+            r={circleRadius}
+          />
+        </g>
+      </svg>
+    </Layout>
   );
 };

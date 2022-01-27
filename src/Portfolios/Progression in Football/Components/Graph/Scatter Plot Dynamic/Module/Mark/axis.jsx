@@ -34,7 +34,7 @@ export const Axis = (props) => {
       </g>
 
       <g transform={`translate(${0},${0})`}>
-        {yScale.ticks(5).map((tick) => (
+        {yScale.ticks(3).map((tick) => (
           <g key={tick} transform={`translate(${0},${yScale(tick)})`}>
             <line stroke="black" strokeWidth=".5" x2={innerWidth} />
             <text

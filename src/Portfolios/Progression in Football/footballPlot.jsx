@@ -1,13 +1,8 @@
 import { Grid, Box, Container, Typography } from "@mui/material";
-import {
-  GetDataPass,
-  GetDataTouchCarries,
-  GetProcessedData,
-} from "./Data/getdata";
-import { ScatterPlot } from "./Components/Graph/Scatter plot/scatterPlot";
+import { GetProcessedData, GetDataPassType } from "./Data/getdata";
 import { ScatterPlotDynamic } from "./Components/Graph/Scatter Plot Dynamic/scatterPlotDynamic";
 import styles from "./style/football.module.css";
-import { FootballField } from "./Components/Graph/Football Field/FootballField";
+import { ConnectedScatterPlot } from "./Components/Graph/Connected scatter plot/connectedScatterPlot";
 import { BarChart } from "./Components/Graph/BarChart/barChart";
 
 const scatterPlotProp = { width: 720, height: 500 };
@@ -17,15 +12,14 @@ const layOutStyle = {
 };
 
 export const FootballPlot = () => {
-  const passing_data = GetDataPass();
-  const touches = GetDataTouchCarries();
   const selected_data = GetProcessedData();
-  if (!passing_data || !touches || !selected_data) {
+  const selectedPassType = GetDataPassType();
+  if (!selected_data || !selectedPassType) {
     return <pre>Loading...</pre>;
   }
 
   return (
-    <Container style={{ padding: 0 }} maxWidth="lg">
+    <Container style={{ px: 1 }} maxWidth="lg">
       <Grid spacing={0} container>
         <Grid item xs={12} md={12}>
           <Box
@@ -56,7 +50,7 @@ export const FootballPlot = () => {
               marginBottom: "1rem",
             }}
           >
-            <ScatterPlotDynamic data={passing_data} />
+            <ScatterPlotDynamic data={selected_data} />
           </Box>
           <Box
             style={{
@@ -65,7 +59,7 @@ export const FootballPlot = () => {
               width: "100%",
             }}
           >
-            <FootballField data={touches} />
+            <ConnectedScatterPlot data={selectedPassType} />
           </Box>
         </Grid>
 

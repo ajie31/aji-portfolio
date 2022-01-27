@@ -1,5 +1,5 @@
 import { App } from "./Module/App";
 
-export const ScatterPlot = ({ data }) => {
+export const ConnectedScatterPlot = ({ data }) => {
   return <App data={data} />;
 };
