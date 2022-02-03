@@ -19,7 +19,7 @@ export const SquadMenu = ({ data, selectedSquad, onChangeSquadHandler }) => {
         {data.map((d, i) => (
           <Tab
             key={i}
-            className="axis-note"
+            className="menu-text"
             value={d["Squad"]}
             label={d["Squad"]}
           />
