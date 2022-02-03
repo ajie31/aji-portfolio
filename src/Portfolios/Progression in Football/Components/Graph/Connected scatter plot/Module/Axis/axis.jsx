@@ -6,7 +6,7 @@ export const Axis = (props) => {
   return (
     <g>
       <XAxis xScale={xScale} innerHeight={innerHeight} fill={"black"} />
-      <YAxis yScale={yScale} innerWidth={innerWidth} fill={"black"} />
+      {/* <YAxis yScale={yScale} innerWidth={innerWidth} fill={"black"} /> */}
     </g>
   );
 };

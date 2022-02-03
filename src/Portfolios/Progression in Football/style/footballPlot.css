@@ -18,7 +18,7 @@
   color: #999999;
 }
 .axis-note {
-  font-size: 13px;
+  font-size: 13px !important;
   font-weight: 400;
 }
 .axis-text {

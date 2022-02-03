@@ -1,17 +1,13 @@
 export const XAxis = ({ xScale, innerHeight, fill }) => (
   <g transform={`translate(${0},${0})`}>
     {xScale.domain().map((tick) => (
-      <g key={tick} transform={`translate(${xScale(tick)},${0})`}>
-        <line
-          stroke="black"
-          strokeWidth=".5"
-          y1={innerHeight}
-          y2={7 + innerHeight}
-        />
+      <g key={tick} transform={`translate(${xScale(tick)},${95})`}>
+        <line stroke="black" strokeWidth=".5" y1={innerHeight} y2={-95} />
         <text
+          className="axis-note"
           y={innerHeight + 15}
           dy=".71em"
-          style={{ textAnchor: "middle", fontSize: ".8rem" }}
+          style={{ textAnchor: "middle" }}
         >
           {tick}
         </text>

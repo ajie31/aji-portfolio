@@ -1,20 +1,23 @@
-import { scaleLog, scaleBand, extent, line } from "d3";
+import { scaleLog, scaleBand, extent } from "d3";
 
 import { Axis } from "./Axis/axis";
 import { Layout } from "./Layout/layout";
 import { Chart } from "./Mark/chart";
-import { dataProcessPassXValue } from "../../../../Data/dataProcess";
+import {
+  dataProcessPassXValue,
+  handleSort,
+} from "../../../../Data/dataProcess";
+import { useState } from "react";
 // #region Basic Dimension
-const height = 500;
+const height = 700;
 const width = 700;
 
-const margin = { top: 25, right: 30, bottom: 100, left: 80 };
+const margin = { top: 50, right: -110, bottom: 150, left: 20 };
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 //#endregion Basic Dimension
 
 // #region axis Scale_Value
-const squadRows = new Map();
 
 const xAxisRows = Object.keys(dataProcessPassXValue);
 const yValue = (k, d) => dataProcessPassXValue[k].value(d);
@@ -25,23 +28,28 @@ const yAxisTitle = "ratio umpan progressif p90";
 const xScale = scaleBand()
   .range([0, innerWidth])
   .domain(xAxisRows)
-  .padding(0.5);
+  .paddingOuter(0.2);
 const yScale = scaleLog().range([innerHeight, 0]);
 //#endregion
 
 // #region Mark/Chart properties
-const circleRadius = 14;
+const circleRadius = 7.14;
+const selectedProps = { radius: 15, stroke: 3.7, color: "#8e6c8a" };
 //#endregion
 
 export const App = (props) => {
   const { data } = props;
-
+  const [selectedSquad, setSquad] = useState(null);
   // yScale.domain(extent(data, yValue)).nice();
-  let yAxisRows = [];
 
+  // *Set Squad Rows
+  let yAxisRows = [];
+  let selectedData;
   xAxisRows.map((k) =>
     data.map((d) => {
-      squadRows.set(d["Squad"], d);
+      if (d["Squad"] === selectedSquad) {
+        selectedData = d;
+      }
       return yAxisRows.push(yValue(k, d));
     })
   );
@@ -67,15 +75,27 @@ export const App = (props) => {
       .domain(extent(data, dataProcessPassXValue["Long"].value)),
   };
 
-  yScale.domain(extent(yAxisRows)).nice();
+  const sortedData = {
+    Ground: handleSort(data, dataProcessPassXValue["Ground"].value),
+    Low: handleSort(data, dataProcessPassXValue["Low"].value),
+    High: handleSort(data, dataProcessPassXValue["High"].value),
+    Short: handleSort(data, dataProcessPassXValue["Short"].value),
+    Medium: handleSort(data, dataProcessPassXValue["Medium"].value),
+    Long: handleSort(data, dataProcessPassXValue["Long"].value),
+  };
 
-  const markLine = (k) =>
-    line()
-      .x(() => xScale(k))
-      .y((d) => yScale(yValue(k, d)));
+  yScale.domain(extent(yAxisRows));
 
+  const onChangeSquadHandler = (event, value) => {
+    setSquad(value);
+  };
+  console.log(selectedSquad);
   return (
-    <Layout>
+    <Layout
+      selectedSquad={selectedSquad}
+      data={data}
+      onChangeSquadHandler={onChangeSquadHandler}
+    >
       <svg
         viewBox={`0 0 ${width} ${height}`}
         preserveAspectRatio="xMidYMid meet"
@@ -94,11 +114,12 @@ export const App = (props) => {
             data={data}
             xScale={xScale}
             yScale={yScale}
-            yValue={yValue}
             yScaleObj={yScaleObj}
-            markLine={markLine}
-            squadRows={squadRows}
+            yValue={yValue}
             r={circleRadius}
+            selectedProps={selectedProps}
+            selectedSquad={selectedSquad}
+            selectedData={selectedData}
           />
         </g>
       </svg>

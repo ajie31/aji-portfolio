@@ -1,3 +1,5 @@
+import { descending } from "d3";
+
 //#region  By Distance
 const passByDistance = (d) => {
   return {
@@ -155,6 +157,10 @@ export const dataProcessPassXValue = {
     label: "Long",
   },
 };
+
+export const handleSort = (data, value) =>
+  data.slice().sort((a, b) => descending(value(a), value(b)));
+
 // ? keys list
 /** 
 "Squad",
