@@ -1,11 +1,7 @@
-import { useEffect } from "react";
-import { selectAll, easeExpOut } from "d3";
 import { PassChart } from "./passChart";
 import { CarryChart } from "./carryChart";
 
 // delte soon
-let passWidthbarTemp;
-let carriesWidthbarTemp;
 
 export const Chart = (props) => {
   const {

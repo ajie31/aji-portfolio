@@ -1,0 +1,32 @@
+.animation-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 1.2s linear forwards;
+  animation-delay: 0.2s;
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animated-circle {
+  animation: buttonTransition 0.5s linear forwards;
+}
+@keyframes buttonTransition {
+  to {
+    r: 19;
+  }
+}
+
+.animated-skin {
+  x: -19;
+  y: -19;
+  animation: rectAnime 0.5s linear forwards;
+}
+@keyframes rectAnime {
+  to {
+    x: 0;
+    y: 0;
+  }
+}

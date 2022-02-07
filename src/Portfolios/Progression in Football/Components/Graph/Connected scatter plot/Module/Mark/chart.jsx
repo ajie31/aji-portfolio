@@ -1,4 +1,5 @@
 import { Tooltip } from "@mui/material";
+import styles from "../../../../../style/connectingPlot.module.css";
 export const Chart = (props) => {
   const {
     data,
@@ -8,7 +9,6 @@ export const Chart = (props) => {
     yScaleObj,
     r,
     selectedProps,
-
     selectedData,
   } = props;
   const selectedSquad = selectedData ? selectedData["Squad"] : null;
@@ -28,14 +28,13 @@ export const Chart = (props) => {
               href={`https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/Portfolios/Progression%20in%20Football/Components/logo%202021/${encodeURIComponent(
                 d["Squad"]
               )}.png`}
-              x="0"
-              y="0"
-              width={
-                (selectedSquad === d["Squad"] ? selectedProps.radius : r) * 2
+              className={
+                selectedSquad === d["Squad"]
+                  ? styles["animated-skin"]
+                  : "static-texture"
               }
-              height={
-                (selectedSquad === d["Squad"] ? selectedProps.radius : r) * 2
-              }
+              width={(selectedSquad === d["Squad"] ? 19 : r) * 2}
+              height={(selectedSquad === d["Squad"] ? 19 : r) * 2}
             />
           </pattern>
         </defs>
@@ -70,6 +69,7 @@ export const Chart = (props) => {
             <>
               <circle
                 key={id}
+                className="mark-pass-type"
                 cx={xScale(k)}
                 // cy={yScale(yValue(k, d))}
                 cy={yScaleObj[k](yValue(k, d))}
@@ -90,8 +90,8 @@ export const Chart = (props) => {
               <>
                 {ik > 0 ? (
                   <line
-                    key={ik}
-                    className={`line l-${selectedSquad}`}
+                    key={yScaleObj[k](yValue(k, selectedData))}
+                    className={`${styles["animation-line"]} l-${selectedSquad}`}
                     x1={nodeX}
                     y1={nodeY}
                     x2={xScale(k)}
@@ -107,22 +107,21 @@ export const Chart = (props) => {
               </>
             ))}
             {xScale.domain().map((k, ik) => (
-              <>
+              <g key={ik + "selected"}>
                 <Tooltip
                   title={`${Number(yValue(k, selectedData).toFixed(1))}`}
                   open={true}
-                  arrow
                 >
                   <circle
-                    key={ik + "selected"}
+                    key={yScaleObj[k](yValue(k, selectedData))}
+                    className={styles["animated-circle"]}
                     cx={xScale(k)}
                     // cy={yScale(yValue(k, d))}
                     cy={yScaleObj[k](yValue(k, selectedData))}
                     fill={`url(#${selectedSquad.replace(/\s/g, "")}_pass)`}
-                    r={selectedProps.radius}
-                  />
+                  ></circle>
                 </Tooltip>
-              </>
+              </g>
             ))}
           </g>
         </g>

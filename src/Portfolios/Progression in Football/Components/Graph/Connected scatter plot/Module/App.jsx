@@ -95,6 +95,9 @@ export const App = (props) => {
       selectedSquad={selectedSquad}
       data={data}
       onChangeSquadHandler={onChangeSquadHandler}
+      title="Macam-Macam Umpan per 90 Menit"
+      note="Pebandingan ditinjau dari sentuhan saat menggiring bola(Carries) dan sentuhan saat menerima umpan (Passing)"
+      source="Advanced data provided by StatsBomb Presented by fbref.com"
     >
       <svg
         viewBox={`0 0 ${width} ${height}`}

@@ -1,5 +1,5 @@
-import { extent, scaleLinear } from "d3";
-import { useState } from "react";
+import { extent, scaleLinear, easeExpOut, selectAll } from "d3";
+import { useState, useEffect } from "react";
 import { Axis } from "./Mark/axis";
 import { Chart } from "./Mark/chart";
 import { dataProcessResult } from "../../../../Data/dataProcess";
@@ -61,6 +61,19 @@ export const App = (props) => {
   };
 
   //#endregion
+
+  useEffect(() => {
+    selectAll(".mark-result")
+      .data(data)
+      .transition()
+      .duration(700)
+      .delay((d, i) => {
+        return i * 5;
+      })
+      .ease(easeExpOut)
+      .attr("cy", (d) => yScale(yValue(d)))
+      .attr("cx", (d) => xScale(xValue(d)));
+  });
 
   return (
     <Layout

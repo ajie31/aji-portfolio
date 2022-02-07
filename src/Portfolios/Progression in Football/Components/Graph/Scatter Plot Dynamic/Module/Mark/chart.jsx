@@ -19,8 +19,9 @@ export const Chart = (props) => {
             </pattern>
           </defs>
           <circle
-            cx={xScale(xValue(d))}
-            cy={yScale(yValue(d))}
+            className="mark-result"
+            cx={0} //xScale(xValue(d))
+            cy={0} //yScale(yValue(d))
             fill={`url(#${d["Squad"].replace(/\s/g, "")})`}
             r={r}
           >
