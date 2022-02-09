@@ -75,14 +75,14 @@ export const App = (props) => {
       .domain(extent(data, dataProcessPassXValue["Long"].value)),
   };
 
-  const sortedData = {
-    Ground: handleSort(data, dataProcessPassXValue["Ground"].value),
-    Low: handleSort(data, dataProcessPassXValue["Low"].value),
-    High: handleSort(data, dataProcessPassXValue["High"].value),
-    Short: handleSort(data, dataProcessPassXValue["Short"].value),
-    Medium: handleSort(data, dataProcessPassXValue["Medium"].value),
-    Long: handleSort(data, dataProcessPassXValue["Long"].value),
-  };
+  // const sortedData = {
+  //   Ground: handleSort(data, dataProcessPassXValue["Ground"].value),
+  //   Low: handleSort(data, dataProcessPassXValue["Low"].value),
+  //   High: handleSort(data, dataProcessPassXValue["High"].value),
+  //   Short: handleSort(data, dataProcessPassXValue["Short"].value),
+  //   Medium: handleSort(data, dataProcessPassXValue["Medium"].value),
+  //   Long: handleSort(data, dataProcessPassXValue["Long"].value),
+  // };
 
   yScale.domain(extent(yAxisRows));
 

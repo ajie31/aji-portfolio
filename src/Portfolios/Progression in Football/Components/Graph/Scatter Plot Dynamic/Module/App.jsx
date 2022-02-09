@@ -53,8 +53,7 @@ export const App = (props) => {
     .nice();
   const yScale = scaleLinear()
     .range([innerHeight, 0])
-    .domain(extent(data, yValue))
-    .nice();
+    .domain(extent(data, yValue));
 
   const handleChangeTopic = (event, newTopic) => {
     setTopic(newTopic);
