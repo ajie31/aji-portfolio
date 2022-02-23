@@ -3,10 +3,7 @@ import { scaleLog, scaleBand, extent } from "d3";
 import { Axis } from "./Axis/axis";
 import { Layout } from "./Layout/layout";
 import { Chart } from "./Mark/chart";
-import {
-  dataProcessPassXValue,
-  handleSort,
-} from "../../../../Data/dataProcess";
+import { dataProcessPassXValue } from "../../../../Data/dataProcess";
 import { useState } from "react";
 // #region Basic Dimension
 const height = 700;
@@ -89,13 +86,14 @@ export const App = (props) => {
   const onChangeSquadHandler = (event, value) => {
     setSquad(value);
   };
-  console.log(selectedSquad);
   return (
     <Layout
       selectedSquad={selectedSquad}
+      xAxisRows={xAxisRows}
+      dataProcessPassXValue={dataProcessPassXValue}
       data={data}
       onChangeSquadHandler={onChangeSquadHandler}
-      title="Macam-Macam Umpan per 90 Menit"
+      title="Jenis Umpan per 90 Menit"
       note="Pebandingan ditinjau dari sentuhan saat menggiring bola(Carries) dan sentuhan saat menerima umpan (Passing)"
       source="Advanced data provided by StatsBomb Presented by fbref.com"
     >

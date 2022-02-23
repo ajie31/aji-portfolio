@@ -1,5 +1,6 @@
 import { Grid } from "@mui/material";
 import { Menu } from "./menu";
+import { Paragraph } from "./paragraph";
 
 export const Layout = ({
   children,
@@ -9,9 +10,10 @@ export const Layout = ({
   title,
   note,
   source,
+  description,
 }) => {
   return (
-    <Grid container>
+    <Grid spacing={2} container>
       <Grid xs={12} item>
         <h5 className="header-text">{title}</h5>
       </Grid>
@@ -26,6 +28,9 @@ export const Layout = ({
           topic={topic}
           options={options}
         />
+      </Grid>
+      <Grid xs={12} item>
+        <Paragraph description={description} />
       </Grid>
       <Grid xs={12} item>
         {children}

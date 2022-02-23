@@ -1,6 +1,6 @@
 import { ToggleButtonGroup, ToggleButton } from "@mui/material";
 
-export const Menu = ({ options, handleChangeTopic, topic }) => {
+export const Menu = ({ handleChangeTopic, topic }) => {
   return (
     <ToggleButtonGroup
       color="primary"

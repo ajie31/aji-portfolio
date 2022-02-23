@@ -85,28 +85,29 @@ export const dataProcess = {
     carry: (d) => carryByDistance(d),
     topic: "byDistance",
     label: "Jarak",
-    description: "still in construction",
+    description: "Jarak pergerakan bola yang bergerak mendekati gawang lawan.",
   },
   byAction: {
     pass: (d) => passByActions(d),
     carry: (d) => carryByActions(d),
     topic: "byAction",
-    label: "Aksi",
-    description: "still in construction",
+    label: "Sentuhan",
+    description:
+      "Semua semua sentuhan pada bola yang mengakibatkan bola tersebut bergerak mendekati gawang lawan.",
   },
   byOneThird: {
     pass: (d) => passByOneThird(d),
     carry: (d) => carryByOneThird(d),
     topic: "byOneThird",
     label: "1/3 Lapangan Lawan",
-    description: "still in construction",
+    description: "Sentuhan bola yang masuk ke 1/3 lapangan lawan.",
   },
   byPenaltyArea: {
     pass: (d) => passPenaltiArea(d),
     carry: (d) => carryPenaltiArea(d),
     topic: "byPenaltyArea",
     label: "Masuk Penalti Lawan",
-    description: "still in construction",
+    description: "Sentuhan bola yang masuk kotak penalti lawan.",
   },
 };
 
@@ -116,45 +117,55 @@ export const dataProcessResult = {
     yValue: (d) => d["GCAPassLive"] / d["90s"],
     xLabel: "SCA Passing",
     yLabel: "GCA Passing",
+    description:
+      "SCA  keterlibatan dari umpan dalam sebuah permainan terbuka yang menghasilkan tembakan, GCA keterlibatan umpan dalam sebuah permainan terbuka yang menghasilkan goal.",
   },
   dribling: {
     xValue: (d) => d["SCADrib"] / d["90s"],
     yValue: (d) => d["GCADrib"] / d["90s"],
     xLabel: "SCA Dribling",
     yLabel: "GCA Dribling",
+    description:
+      "SCA  keterlibatan dari sentuhan menggiring bola dalam sebuah permainan terbuka yang menghasilkan tembakan, GCA keterlibatan sentuhan menggiring bola dalam sebuah permainan terbuka yang menghasilkan goal.",
   },
 };
 
 export const dataProcessPassXValue = {
   Ground: {
-    value: (d) => d["Ground"] / d["90s"],
+    value: (d) => d["Ground"] / (d["Ground"] + d["Low"] + d["High"]),
     desc: "Umpan Pada ketinggian menyentuh tanah",
     label: "Ground",
+    description: "Umpan dimana bola masih menyentuh tanah",
   },
   Low: {
-    value: (d) => d["Low"] / d["90s"],
+    value: (d) => d["Low"] / (d["Ground"] + d["Low"] + d["High"]),
     desc: "Umpan Pada ketinggian di bawah bahu pemain",
     label: "Low",
+    description: "Umpan dimana bola melambung masih dibawah bahu",
   },
   High: {
-    value: (d) => d["High"] / d["90s"],
+    value: (d) => d["High"] / (d["Ground"] + d["Low"] + d["High"]),
     desc: "Umpan pada ketinggian di atas bahu pemain",
     label: "High",
+    description: "Umpan dimana bola melambung hingga diatas bahu",
   },
   Short: {
-    value: (d) => d["Short"] / d["90s"],
-    desc: "Umpan pada jarak 4.57m - 13.72m",
+    value: (d) => d["Short"] / (d["Short"] + d["Medium"] + d["Long"]),
+    desc: "Umpan pada jarak 4,57m - 13,72m",
     label: "Short",
+    description: "Umpan dengan jarak 4,57m hingga 13,71m",
   },
   Medium: {
-    value: (d) => d["Medium"] / d["90s"],
-    desc: "Umpan pada jarak 12.72m - 27.4m",
+    value: (d) => d["Medium"] / (d["Short"] + d["Medium"] + d["Long"]),
+    desc: "Umpan pada jarak 12,72m - 27,4m",
     label: "Medium",
+    description: "Umpan dengan jarak 13,71m hingga 27,43m",
   },
   Long: {
-    value: (d) => d["Long"] / d["90s"],
-    desc: "Umpan pada jarak lebih dari 27.4m",
+    value: (d) => d["Long"] / (d["Short"] + d["Medium"] + d["Long"]),
+    desc: "Umpan pada jarak lebih dari 2,43m",
     label: "Long",
+    description: "Umpan dengan jarak lebih dari 27,43m",
   },
 };
 

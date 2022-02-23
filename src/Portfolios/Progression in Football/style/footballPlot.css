@@ -3,6 +3,7 @@
   font-weight: bold;
   line-height: 46px;
   color: #121212;
+  text-align: center;
 }
 .header-text {
   font-size: 18px;
@@ -10,7 +11,7 @@
   line-height: 24px;
   color: #121212;
   text-align: center;
-  margin: 24px 0;
+  margin: 16px 0;
 }
 .footer-text {
   font-size: 13px;
@@ -32,11 +33,23 @@
 }
 
 .regular-text {
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 1rem;
   line-height: 30px;
   margin-right: auto;
   margin-left: auto;
+}
+.keterangan-left {
+  margin: 0 0;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+}
+.keterangan-center {
+  margin: 0 0;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
 }
 .menu-text {
   font-size: 13px !important;

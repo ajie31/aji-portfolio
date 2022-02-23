@@ -46,6 +46,7 @@ export const App = (props) => {
   const xAxisTitle = dataProcessResult[topic].xLabel;
   const yValue = dataProcessResult[topic].yValue;
   const yAxisTitle = dataProcessResult[topic].yLabel;
+  const description = dataProcessResult[topic].description;
 
   const xScale = scaleLinear()
     .range([0, innerWidth])
@@ -82,6 +83,7 @@ export const App = (props) => {
       title="Hasil Dari Permainan Open Play"
       note="Pebandingan ditinjau dari sentuhan saat menggiring bola(Carries) dan sentuhan saat menerima umpan (Passing)"
       source="Advanced data provided by StatsBomb Presented by fbref.com"
+      description={description}
     >
       <svg
         viewBox={`0 0 ${width} ${height}`}

@@ -13,7 +13,6 @@ import { Chart } from "./Mark/chart";
 import { useState, useEffect } from "react";
 import { Layout } from "./Layout/layout";
 import { Axis } from "./Axis/axis";
-import { margin } from "@mui/system";
 
 let passWidthbarMemo;
 let carriesWidthbarMemo;
@@ -23,6 +22,7 @@ export const App = ({ data }) => {
   // console.log(dataByDistance);
   const [topic, setTopic] = useState("byDistance");
   const [sorted, setSorted] = useState(data);
+  const topicContent = {};
 
   const height = 900;
   const width = 750;
@@ -39,6 +39,8 @@ export const App = ({ data }) => {
   const yValue = (d) => d["Squad"];
   const xValuePass = (d) => dataProcess[topic].pass(d).value();
   const xValueCarry = (d) => dataProcess[topic].carry(d).value();
+  const topicKeys = Object.keys(dataProcess);
+  const description = dataProcess[topic].description;
 
   const xScalePass = scaleLinear()
     .range([0, innerWidthChart / 2.5])
@@ -115,6 +117,8 @@ export const App = ({ data }) => {
       note="Pebandingan ditinjau dari sentuhan saat menggiring bola(Carries) dan sentuhan saat menerima umpan (Passing)"
       source="Advanced data provided by StatsBomb Presented by fbref.com"
       innerWidth={innerWidth}
+      topicKeys={topicKeys}
+      description={description}
     >
       <svg
         viewBox={`0 0 ${width} ${height}`}

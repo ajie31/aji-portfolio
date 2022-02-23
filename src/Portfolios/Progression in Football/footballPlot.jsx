@@ -1,7 +1,6 @@
 import { Grid, Box, Container, Typography } from "@mui/material";
 import { GetProcessedData, GetDataPassType } from "./Data/getdata";
 import { ScatterPlotDynamic } from "./Components/Graph/Scatter Plot Dynamic/scatterPlotDynamic";
-import styles from "./style/football.module.css";
 import { ConnectedScatterPlot } from "./Components/Graph/Connected scatter plot/connectedScatterPlot";
 import { BarChart } from "./Components/Graph/BarChart/barChart";
 
@@ -25,12 +24,22 @@ export const FootballPlot = () => {
           <Box
             style={{
               backgroundColor: layOutStyle.BgColor,
-              height: "200px",
-              width: "100%",
+              margin: "16px auto",
+              width: "60%",
             }}
-          ></Box>
+          >
+            <h2 className="main-text">
+              Grafik Progressifitas dan Pola Mengumpan Pada Liga Premier Inggris
+            </h2>
+            <p className="regular-text">
+              Perbandingan data dengan 3 visual yang berbeda dan
+              mempresentasikan Progresifitas permainan, Pola mengumpan bola
+              ditinjau dari jarak dan tinggi umpanan, dan aksi dari permainan
+              terbuka yang terlibat dalam sebuah tembakan atau goal.
+            </p>
+          </Box>
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12}>
           <Box
             style={{
               backgroundColor: layOutStyle.BgColor,
@@ -50,7 +59,7 @@ export const FootballPlot = () => {
               marginBottom: "1rem",
             }}
           >
-            <ScatterPlotDynamic data={selected_data} />
+            <ConnectedScatterPlot data={selectedPassType} />
           </Box>
           <Box
             style={{
@@ -59,51 +68,7 @@ export const FootballPlot = () => {
               width: "100%",
             }}
           >
-            <ConnectedScatterPlot data={selectedPassType} />
-          </Box>
-        </Grid>
-
-        <Grid item xs={12} md={4}>
-          <Box
-            style={{
-              backgroundColor: layOutStyle.BgColor,
-              width: "100%",
-              padding: "1rem",
-            }}
-          >
-            <h5 className={styles["keterangan"]}>Keterangan</h5>
-
-            <ul className={styles["konten-keterangan-ul"]}>
-              <li className={styles["konten-keterangan-li"]}>
-                <span>Umpan Sukses p90</span>
-                <ul>
-                  <li>
-                    <p>
-                      Merupakan operan yang sukses terhadap sesama member satu
-                      tim di setiap 90 menit pertandingan.
-                    </p>
-                  </li>
-                </ul>
-              </li>
-
-              <li className={styles["konten-keterangan-li"]}>
-                <span>Ratio Jarak Umpan Progressif p90</span>
-                <ul>
-                  <li>
-                    <p>
-                      Merupakan rasio dari total jarak pergerakan bola dari aksi
-                      umpan sukses setiap 90 menit pertandingan dan total jarak
-                      pergerakan bola dari umpan progresif setiap 90 menit
-                      pertandingan.
-                    </p>
-                    <p>
-                      Umpan progresif, merupakan umpan sukses dimana pergerakan
-                      bola mendekati gawang lawan.
-                    </p>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            <ScatterPlotDynamic data={selected_data} />
           </Box>
         </Grid>
       </Grid>

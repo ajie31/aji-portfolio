@@ -1,11 +1,12 @@
 import { EplSquad } from "./eplSquad";
-
+import styles from "../../../../../style/barChart.module.css";
 //#region Labels Components
 const CarryLabel = ({ xCenter, fill, strokeWidth = "1", handleSort }) => (
   <g className="axis-label pass-axis-label">
     <text
       dx={-xCenter / 2}
       dy="-1em"
+      className={styles["axis-label"]}
       fill={fill}
       textAnchor="end"
       cursor="pointer"
@@ -22,6 +23,7 @@ const PassLabel = ({ xCenter, fill, strokeWidth = "1", handleSort }) => (
     <text
       dx={xCenter / 2}
       dy="-1em"
+      className={styles["axis-label"]}
       textAnchor="start"
       fill={fill}
       cursor="pointer"
@@ -84,6 +86,7 @@ const NumberLabel = ({
       <text
         key={i}
         dx={(-marginChart.left + marginAll.left) / 2}
+        className={styles["axis-label"]}
         y={yScale(yValue(d)) + r * 2}
         dy="-.14em"
         textAnchor="middle"
@@ -114,6 +117,7 @@ const PossesionLabel = ({
     <text
       dx={(marginChart.right - marginAll.right) / 2}
       dy="-1em"
+      className={styles["axis-label"]}
       textAnchor="middle"
       fill={fill}
       cursor="pointer"
@@ -132,6 +136,7 @@ const PossesionLabel = ({
         key={i}
         dx={(marginChart.left - marginAll.left) / 2}
         y={yScale(yValue(d)) + r * 2}
+        className={styles["axis-value"]}
         dy="-.14em"
         textAnchor="middle"
         fill={fill}

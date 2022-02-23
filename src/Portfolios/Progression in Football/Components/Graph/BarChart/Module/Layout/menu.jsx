@@ -1,11 +1,10 @@
-import { dataProcess } from "../../../../../Data/dataProcess";
 import styles from "../../../../../style/barChart.module.css";
 import { FormControl, Select, InputLabel, MenuItem } from "@mui/material";
 
-export const Menu = ({ topic, handleTopicChange }) => (
+export const Menu = ({ topic, handleTopicChange, dataProcess }) => (
   <div className={styles["dropdown-menu"]}>
     <FormControl variant="standard" fullWidth>
-      <InputLabel id="select-topic-progression-label">Perbandingan</InputLabel>
+      {/* <InputLabel id="select-topic-progression-label">Perbandingan</InputLabel> */}
       <Select
         labelId="select-topic-progression-label"
         id="select-topic"
