@@ -23,8 +23,8 @@ export const Chart = (props) => {
         <defs key={i}>
           <pattern
             id={d[`Squad`].replace(/\s/g, "") + "_pass"}
-            width={r}
-            height={r}
+            width={1}
+            height={1}
           >
             <image
               href={`https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/Portfolios/Progression%20in%20Football/Components/logo%202021/${encodeURIComponent(

@@ -36,7 +36,7 @@ const selectedProps = { radius: 15, stroke: 3.7, color: "#8e6c8a" };
 
 export const App = (props) => {
   const { data } = props;
-  const [selectedSquad, setSquad] = useState(null);
+  const [selectedSquad, setSquad] = useState("Arsenal");
   // yScale.domain(extent(data, yValue)).nice();
 
   // *Set Squad Rows

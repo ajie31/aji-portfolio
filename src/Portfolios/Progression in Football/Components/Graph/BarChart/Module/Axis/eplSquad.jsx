@@ -4,8 +4,8 @@ export const EplSquad = ({ d, yScale, yValue, r }) => {
       <defs>
         <pattern
           id={`${d["Squad"].replace(/\s/g, "")}-bar`}
-          width={r}
-          height={r}
+          width={1}
+          height={1}
         >
           <image
             href={`https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/Portfolios/Progression%20in%20Football/Components/logo%202021/${encodeURIComponent(

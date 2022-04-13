@@ -8,8 +8,12 @@ export const Menu = ({ handleChangeTopic, topic }) => {
       exclusive
       onChange={handleChangeTopic}
     >
-      <ToggleButton value="passing">Passing</ToggleButton>
-      <ToggleButton value="dribling">Dribling</ToggleButton>
+      <ToggleButton value="passing" disabled={topic === "passing"}>
+        Passing
+      </ToggleButton>
+      <ToggleButton value="dribling" disabled={topic === "dribling"}>
+        Dribling
+      </ToggleButton>
     </ToggleButtonGroup>
   );
 };

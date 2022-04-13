@@ -1,0 +1,42 @@
+export const CirclesAxis = () => {
+  return (
+    <g className="axis-circles">
+      <circle
+        cx="1"
+        cy="1"
+        r="100"
+        stroke="black"
+        opacity={0.6}
+        strokeWidth=".7"
+        fill="#EE5B53"
+      />
+      <circle
+        cx="1"
+        cy="1"
+        r="75"
+        stroke="black"
+        opacity={0.6}
+        strokeWidth=".7"
+        fill="white"
+      />
+      <circle
+        cx="1"
+        cy="1"
+        r="50"
+        stroke="black"
+        opacity={0.6}
+        strokeWidth=".7"
+        fill="white"
+      />
+      <circle
+        cx="1"
+        cy="1"
+        r="25"
+        stroke="black"
+        opacity={0.6}
+        strokeWidth=".7"
+        fill="white"
+      />
+    </g>
+  );
+};

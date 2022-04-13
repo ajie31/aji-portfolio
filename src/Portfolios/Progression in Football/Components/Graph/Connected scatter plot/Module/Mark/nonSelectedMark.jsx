@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 export const NonSelectedMark = ({
   data,
   selectedSquad,
@@ -15,10 +16,9 @@ export const NonSelectedMark = ({
       opacity={!selectedSquad ? 1 : 0.4}
     >
       {xScale.domain().map((k, ik) => (
-        <>
+        <Fragment key={ik}>
           {ik > 0 ? (
             <line
-              key={ik}
               className={`line l-${d["Squad"]}`}
               x1={nodeX}
               y1={nodeY}
@@ -32,10 +32,10 @@ export const NonSelectedMark = ({
           {(nodeX = xScale(k))}
           {/* {(nodeY = yScale(yValue(k, d)))} */}
           {(nodeY = yScaleObj[k](yValue(k, d)))}
-        </>
+        </Fragment>
       ))}
       {xScale.domain().map((k) => (
-        <>
+        <Fragment key={k}>
           <circle
             key={id}
             className="mark-pass-type"
@@ -47,7 +47,7 @@ export const NonSelectedMark = ({
           >
             <title>{d["Squad"]}</title>
           </circle>
-        </>
+        </Fragment>
       ))}
     </g>
   ));

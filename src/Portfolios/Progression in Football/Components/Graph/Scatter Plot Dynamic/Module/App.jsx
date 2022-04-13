@@ -59,7 +59,6 @@ export const App = (props) => {
   const handleChangeTopic = (event, newTopic) => {
     setTopic(newTopic);
   };
-
   //#endregion
 
   useEffect(() => {

@@ -19,13 +19,12 @@ export const FootballPlot = () => {
 
   return (
     <Container style={{ px: 1 }} maxWidth="lg">
-      <Grid spacing={0} container>
-        <Grid item xs={12} md={12}>
+      <Grid spacing={0} justifyContent="center" alignItems="center" container>
+        <Grid item xs={11} md={9}>
           <Box
             style={{
               backgroundColor: layOutStyle.BgColor,
               margin: "16px auto",
-              width: "60%",
             }}
           >
             <h2 className="main-text">
@@ -39,7 +38,7 @@ export const FootballPlot = () => {
             </p>
           </Box>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={11}>
           <Box
             style={{
               backgroundColor: layOutStyle.BgColor,

@@ -1,4 +1,5 @@
 import { Tooltip } from "@mui/material";
+import { Fragment } from "react";
 export const SelectedMark = ({
   selectedData,
   selectedSquad,
@@ -14,7 +15,7 @@ export const SelectedMark = ({
     <g className="selected-squad">
       <g className={`node n-selected-${selectedSquad}`} opacity={1}>
         {xScale.domain().map((k, ik) => (
-          <>
+          <Fragment key={ik}>
             {ik > 0 ? (
               <line
                 key={yScaleObj[k](yValue(k, selectedData))}
@@ -31,7 +32,7 @@ export const SelectedMark = ({
             {(nodeX = xScale(k))}
             {/* {(nodeY = yScale(yValue(k, d)))} */}
             {(nodeY = yScaleObj[k](yValue(k, selectedData)))}
-          </>
+          </Fragment>
         ))}
         {xScale.domain().map((k, ik) => (
           <g key={ik + "selected"}>

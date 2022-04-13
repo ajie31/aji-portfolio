@@ -38,7 +38,7 @@ const PassLabel = ({ xCenter, fill, strokeWidth = "1", handleSort }) => (
 const EplLogo = ({ rEpl }) => (
   <g className="epl-logo">
     <defs>
-      <pattern id={`epl-logo`} width={rEpl} height={rEpl}>
+      <pattern id={`epl-logo`} width={1} height={1}>
         <image
           href="https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/Portfolios/Progression%20in%20Football/Components/logo%202021/premier-league.png"
           x="0"
