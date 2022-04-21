@@ -47,9 +47,16 @@ const myWorks = [
     title: "Grafik Progressifitas dan Pola Mengumpan Pada Liga Premier Inggris",
     url: "/portfolio/football_progression",
     imgUrl:
-      "https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/previewHIVAIDS.png",
+      "https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/football_progression_thumbnail.jpg",
     description:
       "Perbandingan Data Visual antar club sepak bola Liga Inggris mana yang bermain lebih progressive ",
+  },
+  {
+    title: "Premier League Player Profiles",
+    url: "/portfolio/footballer_profile",
+    imgUrl:
+      "https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/profile%20player_thumbnail.jpg",
+    description: "Tampilan data visual pemain bola Liga Inggris",
   },
 ];
 export const HomePage = () => {
