@@ -24,7 +24,7 @@ export const TheCard = ({ headClasses, properties }) => {
           </a>
         </Link>
         <CardContent sx={{ flexGrow: 1 }}>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography noWrap gutterBottom variant="h5" component="h2">
             <Link href={properties.url} underline="hover">
               <a>{properties.title}</a>
             </Link>

@@ -22,19 +22,15 @@ const contents = (breakML) => {
     name: breakML ? "Wirawan Setio Aji" : "Wirawan Setio Aji  |",
     job: breakML ? "Frontend Developer" : "    Frontend Developer",
     paragraphs: [
-      `Dolor morbi non arcu risus quis varius quam. Feugiat pretium nibh ipsum
-    consequat nisl vel pretium lectus quam. Sit amet luctus venenatis lectus
-    magna fringilla. Lacus vel facilisis volutpat est velit egestas. Sit amet
-    mattis vulputate enim nulla aliquet porttitor lacus luctus. Feugiat in
-    ante metus dictum at tempor commodo ullamcorper.`,
-      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Tincidunt ornare massa
-      eget egestas purus viverra accumsan. Aliquam sem fringilla ut morbi
-      tincidunt augue interdum. Egestas dui id ornare arcu.`,
+      `I'am an Under graduate and also a Web Developer, but the strongest point is a programming,using Javascript or C# ,I do have interest on Making Data Visual Webb App but also I make the UI/UX.
+      also have experience with Game Programming using Unity , and Littlebit data science using Python.
+      I can Handle simple database using mysql and PHP/graphQL/mongoDB`,
+      `Currently I wanna take deep into Frontend developer and Data Visual for Web App.
+      beside programming I also love Football, that is why my portfolios have related to football
+      I hope to see and join your team to make something amazing web app.`,
     ],
     Quote: `It’s a feeling that says you have a responsibility. It’s not for
-    yourself. The eye that doesn’t see doesn’t do justice to the body. That’s
-    why it’s there. That’s why you are out there. And somehow you recognize
+    yourself. That’s why it’s there. That’s why you are out there. And somehow you recognize
     that you’re a piece of this total life.`,
   };
 };
@@ -46,6 +42,14 @@ const myWorks = [
       "https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/previewHIVAIDS.png",
     description:
       "Data visual tentang HIV dan AIDS secara umum dan peninjauan kasus di Indonesia ",
+  },
+  {
+    title: "Grafik Progressifitas dan Pola Mengumpan Pada Liga Premier Inggris",
+    url: "/portfolio/football_progression",
+    imgUrl:
+      "https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/previewHIVAIDS.png",
+    description:
+      "Perbandingan Data Visual antar club sepak bola Liga Inggris mana yang bermain lebih progressive ",
   },
 ];
 export const HomePage = () => {

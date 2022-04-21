@@ -9,7 +9,6 @@ export const TheContents = ({ headClasses, myWorks }) => {
           style={{ textAlign: "center", fontWeight: 300 }}
           variant="h3"
           component="h2"
-          gutterBottom
         >
           My Works
         </Typography>
