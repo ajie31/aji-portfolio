@@ -56,7 +56,8 @@ const myWorks = [
     url: "/portfolio/footballer_profile",
     imgUrl:
       "https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/profile%20player_thumbnail.jpg",
-    description: "Tampilan data visual pemain bola Liga Inggris",
+    description:
+      "Tampilan data visual profile performa para pemain bola Liga Inggris",
   },
 ];
 export const HomePage = () => {
