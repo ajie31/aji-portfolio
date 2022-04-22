@@ -150,6 +150,32 @@ const headStyle = {
       padding: "1rem 1rem",
     },
   },
+
+  linkReferences: {
+    margin: "1rem -10px",
+    display: "inline-flex",
+    justifyContent: "space-around",
+    width: "20%",
+    // transform: "translate(10px, -55px)",
+    [breaks.breakpoints.down("ml")]: {
+      width: "20%",
+      justifyContent: "space around",
+      transform: "translate(200%, 0)",
+    },
+    [breaks.breakpoints.down("sm")]: {
+      width: "30%",
+      transform: "translate(0, 0)",
+    },
+  },
+  linkBackground: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: " 2.7rem",
+    width: " 2.7rem",
+    borderRadius: "5px",
+    backgroundColor: "#2f3b52",
+  },
   quote: {
     fontFamily: "Roboto Mono, monospace",
     fontWeight: 300,

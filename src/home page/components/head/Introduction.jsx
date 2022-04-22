@@ -1,3 +1,4 @@
+import { Links } from "./link";
 export const Introduction = ({ headClasses, paragraphs }) => (
   <div className={headClasses.introducing}>
     <h1 className={headClasses.Hello}>
@@ -9,5 +10,6 @@ export const Introduction = ({ headClasses, paragraphs }) => (
         {p}
       </p>
     ))}
+    <Links headClasses={headClasses} />
   </div>
 );

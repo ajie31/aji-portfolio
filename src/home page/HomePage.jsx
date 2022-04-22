@@ -5,6 +5,7 @@ import headStyle from "./styles/styles";
 import { breaks } from "../../styles/globalTheme";
 import { TheHead } from "./components/TheHead";
 import { TheContents } from "./components/TheContents";
+
 const headWrap = (breakML) => {
   return {
     backgroundColor: "#fff",
@@ -73,6 +74,7 @@ export const HomePage = () => {
         headClasses={headClasses}
         contents={contents}
       />
+
       <TheContents headClasses={headClasses} myWorks={myWorks} />
     </Grid>
   );
