@@ -3,7 +3,9 @@ import { breaks } from "../../../styles/globalTheme";
 const headStyle = {
   stars: {
     width: "100%",
-    backgroundColor: "#222733",
+    backgroundImage: `url("https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/profile/background.jpg")`,
+    backgroundPosition: "50% 32%",
+    backgroundRepeat: "no-repeat",
     flexBasis: "250px",
   },
   wrapProfile: {
@@ -140,6 +142,9 @@ const headStyle = {
     justifyContent: "center",
     alignItems: "center",
     padding: "1rem 8rem",
+    backgroundImage: `url("https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/profile/background.jpg")`,
+    backgroundPosition: "50% 12%",
+    backgroundRepeat: "no-repeat",
     [breaks.breakpoints.down("ml")]: {
       transform: "translate(0,-30%)",
       padding: "1rem 1rem",
