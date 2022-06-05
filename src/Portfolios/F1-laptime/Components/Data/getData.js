@@ -1,9 +1,15 @@
 import { csv } from "d3";
+import { createDriverListt } from "./dataProcess";
 
 const DATA_DRIVER_URI =
   "https://gist.githubusercontent.com/ajie31/1eb7b91b8e16a072bcda1454e954dab1/raw/DriverId.csv";
 const DATA_LAPTIME_URI =
   "https://gist.githubusercontent.com/ajie31/1eb7b91b8e16a072bcda1454e954dab1/raw/F1%2520lap%2520time%25202022.csv";
+
+const DATA_CIRCUIT_URI =
+  "https://gist.githubusercontent.com/ajie31/1eb7b91b8e16a072bcda1454e954dab1/raw/raceAndCircuit.csv";
+const PITSTOPDATA_URI =
+  "https://gist.githubusercontent.com/ajie31/1eb7b91b8e16a072bcda1454e954dab1/raw/pitStopData.csv";
 // ?dATA cOLUMNS No,Name,Squad,Post,Nation,Age,Height,Appr,Goal,Asst,PassCMP%,AttPen,NpXgXa,SCA,Tkl,Inter,Block,PPass,Pcarry,Press,URIPict
 export const SetDataLapTime = (setData) => {
   /**  Data Columns
@@ -24,7 +30,8 @@ export const SetDataLapTime = (setData) => {
   };
 
   csv(DATA_LAPTIME_URI, newRow).then((laptime) => {
-    console.log(laptime[0]);
+    // console.log(laptime[0]);
+
     setData(laptime);
   });
 };
@@ -40,7 +47,6 @@ export const SetDataDriver = (setData) => {
     6: "dob"
     7: "nationality"
     8: "url"*/
-
   const newRow = (d) => {
     d["number"] = +d["number"];
     d["driverId"] = +d["driverId"];
@@ -48,8 +54,74 @@ export const SetDataDriver = (setData) => {
   };
 
   csv(DATA_DRIVER_URI, newRow).then((driver) => {
-    console.log(driver[0]);
+    // console.log(driver);
+
     driver.map((d) => driverDictionary.set(d["driverId"], d));
+
     setData(driverDictionary);
   });
+};
+
+export const setCircuitData = (setData) => {
+  /**  Data Columns
+    raceId,
+    driverId,
+    stop
+    ,lap
+    ,time
+    ,duration
+    ,milliseconds*/
+
+  const newRow = (d) => {
+    d["raceId"] = +d["raceId"];
+    d["year"] = +d["year"];
+    d["round"] = +d["round"];
+    d["circuitId"] = +d["circuitId"];
+
+    return d;
+  };
+
+  csv(DATA_CIRCUIT_URI, newRow).then((circuit) => {
+    const selection = circuit.filter((d) => d["year"] === 2022);
+    // console.log(selection);
+    setData(selection);
+  });
+};
+
+export const setPitStop = (setData) => {
+  /**  Data Columns
+    raceId,
+    driverId,
+    stop
+    ,lap
+    ,time
+    ,duration
+    ,milliseconds*/
+
+  const newRow = (d) => {
+    d["raceId"] = +d["raceId"];
+    d["driverId"] = +d["driverId"];
+    d["stop"] = +d["stop"];
+    d["lap"] = +d["lap"];
+    d["duration"] = +d["duration"];
+    d["milliseconds"] = +d["milliseconds"];
+    return d;
+  };
+
+  csv(PITSTOPDATA_URI, newRow).then((pitStop) => {
+    setData(pitStop);
+  });
+};
+
+export const driverParticipant = (dataLapTime, dataDriver) => {
+  const driverSurname = (d) => dataDriver.get(d["driverId"])["surname"];
+  const driverForeName = (d) => dataDriver.get(d["driverId"])["forename"];
+  const driverId = (d) => dataDriver.get(d["driverId"])["code"];
+  const list = createDriverListt(
+    dataLapTime,
+    driverId,
+    driverSurname,
+    driverForeName
+  );
+  return list;
 };
