@@ -19,9 +19,10 @@ const markMargin = {
   right: 22 + axisMargin.right,
   left: 22 + axisMargin.left,
 };
-const rad = 4.8;
+
 const markProperties = {
   lapTime: { rad: 4.8, color: "#688BAB", name: "Lap Time" },
+  positionChange: { rad: 4.8, color: "#E6842A", name: "Position" },
   finishTime: { rad: 4.8 * 2.5, color: "#688BAB", name: "Finish Lap" },
   pitStop: { rad: 4.8 * 2.5, color: "#A0B700", name: "Pit Stop" },
   retire: { rad: 4.8 * 2.5, color: "#E25A42", name: "Retire" },
@@ -63,7 +64,7 @@ export const Chart = ({
     oldxScale = xAxisScale;
     oldDriver = driverToRender;
   }
-  console.log(tempRaceId && tempRaceId !== dataLapTime[0]["raceId"]);
+
   const transitions = (d) =>
     difference === xAxisId(d) && !isAddition
       ? `translate(900,${axisMargin.top})`

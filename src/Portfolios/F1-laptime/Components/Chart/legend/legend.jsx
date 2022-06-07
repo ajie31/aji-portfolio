@@ -1,5 +1,6 @@
 export const Legend = ({ top, right, markProperties }) => {
-  const paddingLegend = 2.5;
+  const paddingLegend = (i) =>
+    i > 1 ? 2.8 : markProperties["pitStop"].rad / 2;
   const paddingGroup = top / 2;
   const paddingLeft = 10;
   return (
@@ -8,7 +9,7 @@ export const Legend = ({ top, right, markProperties }) => {
         x={0}
         y={0}
         width={130}
-        height={140}
+        height={184}
         fill="white"
         stroke="#635F5D"
         strokeWidth={2}
@@ -21,16 +22,22 @@ export const Legend = ({ top, right, markProperties }) => {
         },${paddingGroup})`}
       >
         {Object.keys(markProperties).map((k, i) => (
-          <g className={"legend"} key={`legend${i}`}>
+          <g
+            className={"legend"}
+            key={`legend${i}`}
+            transform={`translate(0,${
+              markProperties[k].rad * i * paddingLegend(i)
+            })`}
+          >
             <circle
               cx={0}
-              cy={markProperties[k].rad * i * paddingLegend}
+              cy={0}
               r={markProperties[k].rad}
               fill={markProperties[k].color}
             />
             <text
               x={0}
-              y={markProperties[k].rad * i * paddingLegend}
+              y={0}
               dx={markProperties["pitStop"].rad + paddingLeft}
               dy=".37em"
               fill="#635F5D"

@@ -1,3 +1,4 @@
+let tempPosition, tempDriver;
 export const CircleMark = ({
   xAxisScale,
   yAxisScale,
@@ -10,24 +11,32 @@ export const CircleMark = ({
   pitStopData,
   maxLap,
   markProperties,
-
   markRef,
 }) => {
+  let tempPosition, oldPositionText, tempDriver;
   const isBoxBox = (raceId, driverId, lap) =>
     pitStopData.filter(
       (d) =>
         d["raceId"] === raceId && d["driverId"] === driverId && d["lap"] === lap
     ).length > 0;
+
+  const isTakenOver = (d) => {
+    const compare = d["position"] !== tempPosition && xAxisId(d) === tempDriver;
+    if (compare) {
+      oldPositionText = tempPosition;
+    }
+    tempPosition = d["position"];
+    tempDriver = xAxisId(d);
+    return compare;
+  };
+
   const isFinalPost = (d) => maxLap === lapValue(d);
   const isRetire = (arr, i) => arr.length < maxLap && i === arr.length - 1;
+
   return (
     <g className="mark-g" ref={markRef}>
       {allData.map((driver, iDriver) => (
-        <g
-          key={"mark-" + iDriver}
-          id={`mark-${xAxisCode(driver)}`}
-          // transform={initTransform(driver)}
-        >
+        <g key={"mark-" + iDriver} id={`mark-${xAxisCode(driver)}`}>
           {dataLapTime
             .filter((race) => xAxisId(race) === xAxisId(driver))
             .map((result, iCircle, arr) => (
@@ -40,13 +49,12 @@ export const CircleMark = ({
                 )}
                 isRetire={isRetire(arr, iCircle)}
                 isFinalPost={isFinalPost}
-                driver={driver}
                 result={result}
-                xAxisScale={xAxisScale}
-                xAxisCode={xAxisCode}
                 yAxisScale={yAxisScale}
                 yAxisValue={yAxisValue}
                 markProperties={markProperties}
+                isTakenOver={isTakenOver(result)}
+                oldPositionText={oldPositionText}
               />
             ))}
         </g>
@@ -59,12 +67,15 @@ const CircleType = ({
   isBoxBox,
   isRetire,
   isFinalPost,
+  isTakenOver,
   result,
   yAxisScale,
   yAxisValue,
   markProperties,
+  oldPositionText,
 }) => {
   const isFinale = isFinalPost(result);
+
   return isRetire ? (
     <g>
       <circle
@@ -116,6 +127,24 @@ const CircleType = ({
       >
         P
       </text>
+    </g>
+  ) : isTakenOver ? (
+    <g>
+      <circle
+        cx={0}
+        cy={yAxisScale(yAxisValue(result))}
+        r={markProperties.positionChange.rad}
+        fill={markProperties.positionChange.color}
+        stroke="#F5F3F2"
+        strokeWidth={2}
+        opacity={0.9}
+      >
+        <title>{`${
+          result["position"] < oldPositionText ? "Take Over" : "Taken Over"
+        } : from ${oldPositionText} to ${result["position"]}, Lap: ${
+          result["lap"]
+        }, ${result["time"]}`}</title>{" "}
+      </circle>
     </g>
   ) : (
     <g>
