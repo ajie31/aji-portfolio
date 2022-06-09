@@ -22,7 +22,7 @@ const markMargin = {
 
 const markProperties = {
   lapTime: { rad: 4.8, color: "#688BAB", name: "Lap Time" },
-  positionChange: { rad: 4.8, color: "#E6842A", name: "Position" },
+  positionChange: { rad: 4.8 * 2.5, color: "#E6842A", name: "Position" },
   finishTime: { rad: 4.8 * 2.5, color: "#688BAB", name: "Finish Lap" },
   pitStop: { rad: 4.8 * 2.5, color: "#A0B700", name: "Pit Stop" },
   retire: { rad: 4.8 * 2.5, color: "#E25A42", name: "Retire" },

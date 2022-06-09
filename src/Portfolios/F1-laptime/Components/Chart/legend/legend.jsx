@@ -1,6 +1,6 @@
 export const Legend = ({ top, right, markProperties }) => {
   const paddingLegend = (i) =>
-    i > 1 ? 2.8 : markProperties["pitStop"].rad / 2;
+    i > 0 ? 2.8 : markProperties["pitStop"].rad / 2;
   const paddingGroup = top / 2;
   const paddingLeft = 10;
   return (
