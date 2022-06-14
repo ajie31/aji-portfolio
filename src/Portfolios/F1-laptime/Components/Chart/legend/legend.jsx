@@ -1,14 +1,14 @@
 export const Legend = ({ top, right, markProperties }) => {
   const paddingLegend = (i) =>
     i > 0 ? 2.8 : markProperties["pitStop"].rad / 2;
-  const paddingGroup = top / 2;
+  const paddingGroup = 22;
   const paddingLeft = 10;
   return (
-    <g transform={`translate(${right - 80},${top})`} className="legendG">
+    <g transform={`translate(${right - 10},${top})`} className="legendG">
       <rect
         x={0}
         y={0}
-        width={130}
+        width={160}
         height={184}
         fill="white"
         stroke="#635F5D"

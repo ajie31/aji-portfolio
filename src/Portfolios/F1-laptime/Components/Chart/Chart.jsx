@@ -16,7 +16,7 @@ const axisMargin = { top: 22, bottom: 12, right: 12, left: 22 };
 const markMargin = {
   top: 22 + axisMargin.top,
   bottom: 22 + axisMargin.bottom,
-  right: 22 + axisMargin.right,
+  right: 122 + axisMargin.right,
   left: 22 + axisMargin.left,
 };
 
@@ -31,10 +31,13 @@ const markProperties = {
 export const Chart = ({
   dataLapTime,
   pitStopData,
+  dataDriver,
+  driverToShow,
   driverToRender,
   selectedDrivers,
   xAxisRef,
   markRef,
+  handleSelectDriverToShow,
 }) => {
   const markWidth = width - markMargin.left - markMargin.right;
   const markHeight = height - markMargin.top - markMargin.bottom;
@@ -168,7 +171,7 @@ export const Chart = ({
           markRef={markRef}
         />
         <Legend
-          top={markMargin.top}
+          top={height - markMargin.top - markMargin.bottom - 187}
           right={markWidth}
           markProperties={markProperties}
         />

@@ -10,7 +10,6 @@ export const XAxis = ({
   xAxisId,
   xAxisRef,
   allData,
-  initTransform,
 }) => {
   return (
     <g className="x-axis-group" overflow="auto" ref={xAxisRef}>

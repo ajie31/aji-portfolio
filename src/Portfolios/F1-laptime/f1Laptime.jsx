@@ -6,6 +6,8 @@ import {
   driverParticipant,
   setPitStop,
   setCircuitData,
+  SetStanding,
+  driverParticipant_1,
 } from "./Components/data/getData";
 
 import { TopLayout } from "./Components/Layout/topLayout";
@@ -14,6 +16,8 @@ import { ChartLayout } from "./Components/Layout/chartLayout";
 export const F1Laptime = () => {
   const [dataDriver, setDataDriver] = useState(null);
   const [dataLapTime, setLapTime] = useState(null);
+  const [dataStanding, setDataStanding] = useState(null);
+  const [driverToShow, setDriverToShow] = useState(null);
   const [selectedDrivers, setSelectedDrivers] = useState({
     drivers: [],
     difference: null,
@@ -30,6 +34,7 @@ export const F1Laptime = () => {
     SetDataLapTime(setLapTime);
     setPitStop(setPitStopData);
     setCircuitData(setCircuit);
+    SetStanding(setDataStanding);
   }, [
     SetDataDriver,
     SetDataLapTime,
@@ -37,19 +42,28 @@ export const F1Laptime = () => {
     setDataDriver,
     setLapTime,
     setPitStopData,
+    setCircuitData,
+    setCircuit,
+    setDataStanding,
+    SetStanding,
   ]);
   if (
     !dataDriver ||
     !dataLapTime ||
     !pitStopData ||
     !circuit ||
-    !selectedRace
+    !selectedRace ||
+    !dataStanding
   ) {
     return <pre>Loading...</pre>;
   }
+
   //? Filter Driver and race
   const filterredRace = dataLapTime.filter((d) => d["raceId"] === selectedRace);
-  const recentDriverParticipants = driverParticipant(filterredRace, dataDriver);
+  const recentDriverParticipants = driverParticipant_1(
+    dataStanding,
+    dataDriver
+  );
   const lastRace = dataLapTime[dataLapTime.length - 1]["raceId"];
 
   const handleSelectDriver = (event, newDrivers) => {
@@ -72,9 +86,15 @@ export const F1Laptime = () => {
       isAddition: false,
     });
   };
+  const handleSelectDriverToShow = (event) => {
+    const driverId = +event.target.dataset.id;
+    setDriverToShow({
+      standing: dataStanding.get(driverId),
+      driver: dataDriver.get(driverId),
+    });
+  };
 
   const driverToRender = selectedDrivers.drivers.map((d) => dataDriver.get(d));
-
   // console.log(
   //   pitStopData.filter(
   //     (d) =>
@@ -101,10 +121,12 @@ export const F1Laptime = () => {
         <ChartLayout
           dataLapTime={filterredRace}
           dataDriver={dataDriver}
+          driverToShow={driverToShow}
           recentDriverParticipants={recentDriverParticipants}
           Grid={Grid}
           selectedDrivers={selectedDrivers}
           handleSelectDriver={handleSelectDriver}
+          handleSelectDriverToShow={handleSelectDriverToShow}
           driverToRender={driverToRender}
           pitStopData={pitStopData}
           xAxisRef={xAxisRef}

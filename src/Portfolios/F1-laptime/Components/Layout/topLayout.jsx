@@ -21,16 +21,16 @@ export const TopLayout = ({
       <h3 className="title">
         Pencapaian Waktu Pada setiap Pembalap dalam Kompetisi F1
       </h3>
-      <p className="description">
-        Pencapaian waktu akan diperlihatkan pada sebuah data visual sesuai
-        dengan sirkuit balap yang dipilih
-      </p>
       <CircuitMenu
         handleSelectRace={handleSelectRace}
         circuit={circuit}
         selectedRace={selectedRace}
         lastRace={lastRace}
       />
+      <p className="description" style={{ textAlign: "center" }}>
+        Pencapaian waktu akan diperlihatkan pada sebuah data visual sesuai
+        dengan sirkuit balap yang dipilih
+      </p>
     </Grid>
   );
 };

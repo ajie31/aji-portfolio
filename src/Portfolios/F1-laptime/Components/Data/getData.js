@@ -5,7 +5,8 @@ const DATA_DRIVER_URI =
   "https://gist.githubusercontent.com/ajie31/1eb7b91b8e16a072bcda1454e954dab1/raw/DriverId.csv";
 const DATA_LAPTIME_URI =
   "https://gist.githubusercontent.com/ajie31/1eb7b91b8e16a072bcda1454e954dab1/raw/F1%2520lap%2520time%25202022.csv";
-
+const DATA_STANDING_SEASON =
+  "https://gist.githubusercontent.com/ajie31/1eb7b91b8e16a072bcda1454e954dab1/raw/standing.csv";
 const DATA_CIRCUIT_URI =
   "https://gist.githubusercontent.com/ajie31/1eb7b91b8e16a072bcda1454e954dab1/raw/raceAndCircuit.csv";
 const PITSTOPDATA_URI =
@@ -35,6 +36,7 @@ export const SetDataLapTime = (setData) => {
     setData(laptime);
   });
 };
+
 export const SetDataDriver = (setData) => {
   const driverDictionary = new Map();
   /** Columns Data
@@ -124,4 +126,44 @@ export const driverParticipant = (dataLapTime, dataDriver) => {
     driverForeName
   );
   return list;
+};
+export const driverParticipant_1 = (dataStanding, dataDriver) => {
+  const list = Array.from(dataStanding, ([key, value]) => {
+    return {
+      ...dataDriver.get(key),
+      points: value["points"],
+      standing: value["position"],
+    };
+  }).sort((a, b) => b.points - a.points);
+
+  return list;
+};
+export const SetStanding = (setData) => {
+  const selectedStanding = new Map();
+  /** Columns Data
+    0: "driverId"
+    1: "driverRef"
+    2: "number"
+    3: "code"
+    4: "forename"
+    5: "surname"
+    6: "dob"
+    7: "nationality"
+    8: "url"*/
+  const newRow = (d) => {
+    d["number"] = +d["number"];
+    d["driverId"] = +d["driverId"];
+    d["position"] = +d["position"];
+    d["raceId"] = +d["raceId"];
+    d["points"] = +d["points"];
+    return d;
+  };
+
+  csv(DATA_STANDING_SEASON, newRow).then((standing) => {
+    const select = standing.filter(
+      (d) => d["raceId"] === standing[standing.length - 1]["raceId"]
+    );
+    select.map((d) => selectedStanding.set(d["driverId"], d));
+    setData(selectedStanding);
+  });
 };

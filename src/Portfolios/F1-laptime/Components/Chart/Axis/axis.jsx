@@ -15,6 +15,7 @@ export const Axis = ({
   xAxisRef,
   allData,
   initTransform,
+  handleSelectDriverToShow,
 }) => (
   <g className="axis-g">
     <YAxis left={left} yAxisScale={yAxisScale} markWidth={markWidth} />
