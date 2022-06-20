@@ -5,7 +5,6 @@ export const DriverMenu = ({
   handleSelectDriver,
   selectedDrivers,
 }) => {
-  console.log(recentDriverParticipants);
   return (
     <ToggleButtonGroup
       value={selectedDrivers.drivers}

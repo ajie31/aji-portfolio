@@ -1,5 +1,4 @@
 import { Grid } from "@mui/material";
-import { getCountryToCode } from "../../data/dataProcess";
 export const DriverProfile = ({ standing, surname, forename, points }) => {
   return (
     <Grid container>
