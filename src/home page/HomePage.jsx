@@ -64,7 +64,7 @@ const myWorks = [
     title: "Meninjau Event Setiap Lap Pada Kompetisi F1",
     url: "/portfolio/f1_laptime",
     imgUrl:
-      "https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/previewHIVAIDS.png",
+      "https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/F1%20laptime.jpg",
     description:
       "Melihat apa saja yang terjadi pada setiap lap pada ajang balapan F1 Musim 2022",
   },
