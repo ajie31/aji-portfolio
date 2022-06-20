@@ -7,7 +7,7 @@ import {
   setPitStop,
   setCircuitData,
   SetStanding,
-} from "./Components/data/getData";
+} from "./Components/Data/getData";
 
 import { TopLayout } from "./Components/Layout/topLayout";
 import { ChartLayout } from "./Components/Layout/chartLayout";
