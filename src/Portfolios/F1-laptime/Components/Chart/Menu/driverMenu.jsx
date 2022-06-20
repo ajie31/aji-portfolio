@@ -10,7 +10,8 @@ export const DriverMenu = ({
     <ToggleButtonGroup
       value={selectedDrivers.drivers}
       onChange={handleSelectDriver}
-      aria-label="text formatting"
+      aria-label="Driver Menu"
+      title="DriverMenu"
     >
       {recentDriverParticipants.map((d, i) => (
         <ToggleButton

@@ -18,7 +18,7 @@ export const ChartLayout = ({
 }) => {
   return (
     <>
-      <Grid item xs={12} style={{ width: "85%" }}>
+      <Grid item xs={12} style={{ width: "85%", padding: 0 }}>
         <Chart
           dataLapTime={dataLapTime}
           dataDriver={dataDriver}
@@ -31,10 +31,17 @@ export const ChartLayout = ({
           handleSelectDriverToShow={handleSelectDriverToShow}
         ></Chart>
       </Grid>
-      <Grid item xs={12} style={{ maxWidth: "1250px", overflow: "auto" }}>
-        {/* <BrushChart /> */}
-        {/* <SecondaryChart /> */}
-
+      <Grid
+        item
+        xs={12}
+        style={{
+          maxWidth: "1250px",
+          overflow: "auto",
+          textAlign: "center",
+          padding: 0,
+        }}
+      >
+        <h3 style={{ margin: ".5rem", color: "#635f5d" }}>Driver Menu</h3>
         <DriverMenu
           recentDriverParticipants={recentDriverParticipants}
           selectedDrivers={selectedDrivers}

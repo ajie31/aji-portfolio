@@ -1,4 +1,4 @@
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Typography, ThemeProvider } from "@mui/material";
 import { useState, useEffect, useRef } from "react";
 import {
   SetDataDriver,
@@ -7,11 +7,12 @@ import {
   setPitStop,
   setCircuitData,
   SetStanding,
-  driverParticipant_1,
 } from "./Components/data/getData";
 
 import { TopLayout } from "./Components/Layout/topLayout";
 import { ChartLayout } from "./Components/Layout/chartLayout";
+import { TextTheme } from "../HIV-AIDS-Case/Style/theme";
+import Link from "next/link";
 
 export const F1Laptime = () => {
   const [dataDriver, setDataDriver] = useState(null);
@@ -60,10 +61,7 @@ export const F1Laptime = () => {
 
   //? Filter Driver and race
   const filterredRace = dataLapTime.filter((d) => d["raceId"] === selectedRace);
-  const recentDriverParticipants = driverParticipant_1(
-    dataStanding,
-    dataDriver
-  );
+  const recentDriverParticipants = driverParticipant(dataStanding, dataDriver);
   const lastRace = dataLapTime[dataLapTime.length - 1]["raceId"];
 
   const handleSelectDriver = (event, newDrivers) => {
@@ -110,30 +108,49 @@ export const F1Laptime = () => {
         alignItems: "center",
       }}
     >
-      <Grid container spacing={1}>
-        <TopLayout
-          Grid={Grid}
-          handleSelectRace={handleSelectRace}
-          circuit={circuit}
-          selectedRace={selectedRace}
-          lastRace={lastRace}
-        />
-        <ChartLayout
-          dataLapTime={filterredRace}
-          dataDriver={dataDriver}
-          driverToShow={driverToShow}
-          recentDriverParticipants={recentDriverParticipants}
-          Grid={Grid}
-          selectedDrivers={selectedDrivers}
-          handleSelectDriver={handleSelectDriver}
-          handleSelectDriverToShow={handleSelectDriverToShow}
-          driverToRender={driverToRender}
-          pitStopData={pitStopData}
-          xAxisRef={xAxisRef}
-          markRef={markRef}
-        />
-        <Grid item></Grid>
-      </Grid>
+      <ThemeProvider theme={TextTheme}>
+        <Grid container spacing={1}>
+          <TopLayout
+            Grid={Grid}
+            handleSelectRace={handleSelectRace}
+            circuit={circuit}
+            selectedRace={selectedRace}
+            lastRace={lastRace}
+          />
+          <ChartLayout
+            dataLapTime={filterredRace}
+            dataDriver={dataDriver}
+            driverToShow={driverToShow}
+            recentDriverParticipants={recentDriverParticipants}
+            Grid={Grid}
+            selectedDrivers={selectedDrivers}
+            handleSelectDriver={handleSelectDriver}
+            handleSelectDriverToShow={handleSelectDriverToShow}
+            driverToRender={driverToRender}
+            pitStopData={pitStopData}
+            xAxisRef={xAxisRef}
+            markRef={markRef}
+          />
+          <Grid
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "center",
+              margin: "1rem 0",
+            }}
+            xs={12}
+            item
+          >
+            <Typography variant="captionSource">
+              data source :{" "}
+              <Link href="http://ergast.com/mrd/">
+                <a target="_blank">The Ergast</a>
+              </Link>{" "}
+              Developer API F1 data provider that update every GP Race.
+            </Typography>
+          </Grid>
+        </Grid>
+      </ThemeProvider>
     </Container>
   );
 };

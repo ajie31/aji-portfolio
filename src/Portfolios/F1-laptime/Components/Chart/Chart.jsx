@@ -12,10 +12,10 @@ let oldxScale, oldDriver, tempRaceId;
 
 const width = 900;
 const height = 600;
-const axisMargin = { top: 22, bottom: 12, right: 12, left: 22 };
+const axisMargin = { top: 22, bottom: 2, right: 12, left: 22 };
 const markMargin = {
   top: 22 + axisMargin.top,
-  bottom: 22 + axisMargin.bottom,
+  bottom: 2 + axisMargin.bottom,
   right: 122 + axisMargin.right,
   left: 22 + axisMargin.left,
 };

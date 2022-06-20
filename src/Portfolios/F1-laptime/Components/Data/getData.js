@@ -115,19 +115,19 @@ export const setPitStop = (setData) => {
   });
 };
 
-export const driverParticipant = (dataLapTime, dataDriver) => {
-  const driverSurname = (d) => dataDriver.get(d["driverId"])["surname"];
-  const driverForeName = (d) => dataDriver.get(d["driverId"])["forename"];
-  const driverId = (d) => dataDriver.get(d["driverId"])["code"];
-  const list = createDriverListt(
-    dataLapTime,
-    driverId,
-    driverSurname,
-    driverForeName
-  );
-  return list;
-};
-export const driverParticipant_1 = (dataStanding, dataDriver) => {
+// export const driverParticipant = (dataLapTime, dataDriver) => {
+//   const driverSurname = (d) => dataDriver.get(d["driverId"])["surname"];
+//   const driverForeName = (d) => dataDriver.get(d["driverId"])["forename"];
+//   const driverId = (d) => dataDriver.get(d["driverId"])["code"];
+//   const list = createDriverListt(
+//     dataLapTime,
+//     driverId,
+//     driverSurname,
+//     driverForeName
+//   );
+//   return list;
+// };
+export const driverParticipant = (dataStanding, dataDriver) => {
   const list = Array.from(dataStanding, ([key, value]) => {
     return {
       ...dataDriver.get(key),
