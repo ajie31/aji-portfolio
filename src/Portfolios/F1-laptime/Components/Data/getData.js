@@ -1,5 +1,4 @@
 import { csv } from "d3";
-import { createDriverListt } from "./dataProcess";
 
 const DATA_DRIVER_URI =
   "https://gist.githubusercontent.com/ajie31/1eb7b91b8e16a072bcda1454e954dab1/raw/DriverId.csv";
@@ -115,18 +114,6 @@ export const setPitStop = (setData) => {
   });
 };
 
-// export const driverParticipant = (dataLapTime, dataDriver) => {
-//   const driverSurname = (d) => dataDriver.get(d["driverId"])["surname"];
-//   const driverForeName = (d) => dataDriver.get(d["driverId"])["forename"];
-//   const driverId = (d) => dataDriver.get(d["driverId"])["code"];
-//   const list = createDriverListt(
-//     dataLapTime,
-//     driverId,
-//     driverSurname,
-//     driverForeName
-//   );
-//   return list;
-// };
 export const driverParticipant = (dataStanding, dataDriver) => {
   const list = Array.from(dataStanding, ([key, value]) => {
     return {

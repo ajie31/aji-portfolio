@@ -60,6 +60,14 @@ const myWorks = [
     description:
       "Tampilan data visual profile performa para pemain bola Liga Inggris",
   },
+  {
+    title: "Meninjau Event Setiap Lap Pada Kompetisi F1",
+    url: "/portfolio/f1_laptime",
+    imgUrl:
+      "https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/previewHIVAIDS.png",
+    description:
+      "Melihat apa saja yang terjadi pada setiap lap pada ajang balapan F1 Musim 2022",
+  },
 ];
 export const HomePage = () => {
   const useStyles = makeStyles((theme) => headStyle);
