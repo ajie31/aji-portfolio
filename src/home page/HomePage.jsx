@@ -23,12 +23,11 @@ const contents = (breakML) => {
     name: breakML ? "Wirawan Setio Aji" : "Wirawan Setio Aji  |",
     job: breakML ? "Frontend Developer" : "    Frontend Developer",
     paragraphs: [
-      `I'am an Under graduate and also a Web Developer, but the strongest point is a programming,using Javascript or C# ,I do have interest on Making Data Visual Webb App but also I make the UI/UX.
+      `I'am an Under graduate and also a Web Developer, but the strongest point is a programming,using Javascript or Python and Used tobe learn C# ,I do have interest on Making Data Visual Webb App but also I make the UI/UX.
       also have experience with Game Programming using Unity , and Littlebit data science using Python.
-      I can Handle simple database using mysql and PHP/graphQL/mongoDB`,
-      `Currently I wanna take deep into Frontend developer and Data Visual for Web App.
-      beside programming I also love Football, that is why my portfolios have related to football
-      I hope to see and join your team to make something amazing web app.`,
+      I can Handle simple database using sqlite and graphQL/mongoDB`,
+      `Finished Hactive8 Data Science Bootcamp in 2022,and Hopefully can work as data scientist or data analyst or software engineer that implementing machine learning in it in the future`,
+      `This Website is just to show my Data visuals projects, for my data science projects please checkout my Github ,and please Checkout my Linkedin for more about me`
     ],
     Quote: `It’s a feeling that says you have a responsibility. It’s not for
     yourself. That’s why it’s there. That’s why you are out there. And somehow you recognize

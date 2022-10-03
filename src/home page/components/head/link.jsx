@@ -5,7 +5,7 @@ export const Links = ({ headClasses }) => {
     //style="list-style-type: none;"
     <div className={headClasses.linkReferences}>
       <div className={headClasses.linkBackground}>
-        <Link href={"https://github.com/ajie31"} underline="hover">
+        <Link href={"https://www.linkedin.com/in/wirawan-setio-aji/"} underline="hover">
           <a
             style={{ display: "flex", alignItems: "center" }}
             title="LinkedIn link"
@@ -25,21 +25,5 @@ export const Links = ({ headClasses }) => {
         </Link>
       </div>
     </div>
-    // <ul style={{ listStyleType: "none", display: "inline-block" }}>
-    //   <li style={{ display: "inline-block" }}>
-    //     <Link href={"https://github.com/ajie31"} underline="hover">
-    //       <a title="Github link">
-    //         <GitHub />
-    //       </a>
-    //     </Link>
-    //   </li>
-    //   <li>
-    //     <Link href={"https://github.com/ajie31"} underline="hover">
-    //       <a title="Github link">
-    //         <GitHub />
-    //       </a>
-    //     </Link>
-    //   </li>
-    // </ul>
   );
 };
