@@ -23,9 +23,9 @@ const contents = (breakML) => {
     name: breakML ? "Wirawan Setio Aji" : "Wirawan Setio Aji  |",
     job: breakML ? "Frontend Developer" : "    Frontend Developer",
     paragraphs: [
-      `I'am an Data Scientist, strongest point is a programming,using Javascript or Python and Used tobe learn C# ,I do have interest on Making Data Visual Web App, Data Engineering ,and Machine Learning but also I make the UI/UX.
-      also have experience with Game Programming using Unity , and Littlebit data science using Python.
-      I can Handle simple database using sqlite and graphQL/mongoDB`,
+      `I'am an Data Scientist, strongest point is a programming,using Javascript or Python and Used tobe learn C# ,I do have interest on Making Data Visual Web App, Data Engineering ,and Machine Learning.
+      also able to make data visual using D3.js and React js , and data science using Python.
+      I can Handle simple database using sql`,
       `Finished Hactive8 Data Science Bootcamp in 2022,and Hopefully can work as data scientist or data analyst or software engineer that implementing machine learning in it in the future`,
       `This Website is just to show my Data visuals projects, for my data science projects please checkout my Github ,and please Checkout my Linkedin for more about me`
     ],
