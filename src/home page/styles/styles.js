@@ -14,7 +14,7 @@ const headStyle = {
     transform: "translate(0,-20%)",
     display: "flex",
     flexDirection: "column",
-    padding: "1rem",
+    padding: "5rem",
     [breaks.breakpoints.down("lg")]: {
       marginLeft: "10%",
       transform: "translate(0,-15%)",
