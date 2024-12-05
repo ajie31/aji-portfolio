@@ -55,8 +55,8 @@ export const Body = () => {
               </Typography>
               <Typography variant="h5" color="inherit" paragraph>
                 Multiple lines of text that form the lede, informing new readers
-                quickly and efficiently about what's most interesting in this
-                post's contents.
+                quickly and efficiently about what&apos;s most interesting in
+                this post&apos;s contents.
               </Typography>
               <Link variant="subtitle1" href="#">
                 linkit

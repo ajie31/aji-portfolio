@@ -14,7 +14,7 @@ export const TheContents = ({ headClasses, myWorks }) => {
         </Typography>
       </Grid>
       {myWorks.map((d) => (
-        <TheCard headClasses={headClasses} properties={d} />
+        <TheCard key={d} headClasses={headClasses} properties={d} />
       ))}
     </Grid>
   );
