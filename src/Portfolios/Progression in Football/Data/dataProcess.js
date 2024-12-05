@@ -131,24 +131,24 @@ export const dataProcessResult = {
 };
 
 export const dataProcessPassXValue = {
-  Ground: {
-    value: (d) => d["Ground"] / (d["Ground"] + d["Low"] + d["High"]),
-    desc: "Umpan Pada ketinggian menyentuh tanah",
-    label: "Ground",
-    description: "Umpan dimana bola masih menyentuh tanah",
-  },
-  Low: {
-    value: (d) => d["Low"] / (d["Ground"] + d["Low"] + d["High"]),
-    desc: "Umpan Pada ketinggian di bawah bahu pemain",
-    label: "Low",
-    description: "Umpan dimana bola melambung masih dibawah bahu",
-  },
-  High: {
-    value: (d) => d["High"] / (d["Ground"] + d["Low"] + d["High"]),
-    desc: "Umpan pada ketinggian di atas bahu pemain",
-    label: "High",
-    description: "Umpan dimana bola melambung hingga diatas bahu",
-  },
+  // Ground: {
+  //   value: (d) => d["Ground"] / (d["Ground"] + d["Low"] + d["High"]),
+  //   desc: "Umpan Pada ketinggian menyentuh tanah",
+  //   label: "Ground",
+  //   description: "Umpan dimana bola masih menyentuh tanah",
+  // },
+  // Low: {
+  //   value: (d) => d["Low"] / (d["Ground"] + d["Low"] + d["High"]),
+  //   desc: "Umpan Pada ketinggian di bawah bahu pemain",
+  //   label: "Low",
+  //   description: "Umpan dimana bola melambung masih dibawah bahu",
+  // },
+  // High: {
+  //   value: (d) => d["High"] / (d["Ground"] + d["Low"] + d["High"]),
+  //   desc: "Umpan pada ketinggian di atas bahu pemain",
+  //   label: "High",
+  //   description: "Umpan dimana bola melambung hingga diatas bahu",
+  // },
   Short: {
     value: (d) => d["Short"] / (d["Short"] + d["Medium"] + d["Long"]),
     desc: "Umpan pada jarak 4,57m - 13,72m",

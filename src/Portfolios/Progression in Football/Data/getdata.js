@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { csv } from "d3";
-
+import { MongoClient } from "mongodb";
+// const MongoClient = require('mongodb').MongoClient;
 const DATA_URI_PASS_TYPE =
   "https://gist.githubusercontent.com/ajie31/049033f2ee3f8b4119e937a754b6f656/raw/passtype18th%2520week.csv";
 
 const DATA_URI_CP =
   "https://gist.githubusercontent.com/ajie31/049033f2ee3f8b4119e937a754b6f656/raw/processedPassCarries18thWeek.csv";
 //ScaPassLive,GcaPassLive,SCA,GCA,DrbSucc,DrbAtt,Poss
-
+const URL_MONGO = "mongodb://localhost:27017/fbref_data";
 export const GetDataPassType = () => {
   const [data, setData] = useState(null);
   const row = (d) => {
@@ -15,18 +16,23 @@ export const GetDataPassType = () => {
     d["Short"] = +d["Short"];
     d["Medium"] = +d["Medium"];
     d["Long"] = +d["Long"];
-    d["Ground"] = +d["Ground"];
-    d["Low"] = +d["Low"];
-    d["High"] = +d["High"];
+    // d["Ground"] = +d["Ground"];
+    // d["Low"] = +d["Low"];
+    // d["High"] = +d["High"];
     d["Cmp%"] = +d["Cmp%"];
     return d;
   };
 
   useEffect(() => {
-    csv(DATA_URI_PASS_TYPE, row).then((pass_type) => {
-      console.log(pass_type);
-      setData(pass_type);
+    client = MongoClient.connect((err, db) => {
+      if (err) throw err;
+      var dbo = db.db("fbref_data").collection("pass_carry_gca");
     });
+
+    // csv(DATA_URI_PASS_TYPE, row).then((pass_type) => {
+    //   console.log(pass_type);
+    //   setData(pass_type);
+    // });
   }, []);
 
   return data;

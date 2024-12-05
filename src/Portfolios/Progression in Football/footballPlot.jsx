@@ -1,5 +1,6 @@
 import { Grid, Box, Container, Typography } from "@mui/material";
-import { GetProcessedData, GetDataPassType } from "./Data/getdata";
+// import { GetProcessedData, GetDataPassType } from "./Data/getdata";
+import { GetPCGDataMongo, GetDataPassTypeMongo } from "./Api/get_data";
 import { ScatterPlotDynamic } from "./Components/Graph/Scatter Plot Dynamic/scatterPlotDynamic";
 import { ConnectedScatterPlot } from "./Components/Graph/Connected scatter plot/connectedScatterPlot";
 import { BarChart } from "./Components/Graph/BarChart/barChart";
@@ -11,8 +12,13 @@ const layOutStyle = {
 };
 
 export const FootballPlot = () => {
-  const selected_data = GetProcessedData();
-  const selectedPassType = GetDataPassType();
+  // const selected_data = GetProcessedData();
+  // const selectedPassType = GetDataPassType();
+  const selected_data = GetPCGDataMongo();
+  const selectedPassType = GetDataPassTypeMongo();
+  // if (!selected_data || !selectedPassType) {
+  //   return <pre>Loading...</pre>;
+  // }
   if (!selected_data || !selectedPassType) {
     return <pre>Loading...</pre>;
   }

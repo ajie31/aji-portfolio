@@ -6,10 +6,10 @@ import { Chart } from "./Mark/chart";
 import { dataProcessPassXValue } from "../../../../Data/dataProcess";
 import { useState } from "react";
 // #region Basic Dimension
-const height = 700;
+const height = 490;
 const width = 700;
 
-const margin = { top: 50, right: -110, bottom: 150, left: 20 };
+const margin = { top: 50, right: -270, bottom: 150, left: 20 };
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 //#endregion Basic Dimension
@@ -52,15 +52,15 @@ export const App = (props) => {
   );
 
   const yScaleObj = {
-    Ground: scaleLog()
-      .range([innerHeight, 0])
-      .domain(extent(data, dataProcessPassXValue["Ground"].value)),
-    Low: scaleLog()
-      .range([innerHeight, 0])
-      .domain(extent(data, dataProcessPassXValue["Low"].value)),
-    High: scaleLog()
-      .range([innerHeight, 0])
-      .domain(extent(data, dataProcessPassXValue["High"].value)),
+    // Ground: scaleLog()
+    //   .range([innerHeight, 0])
+    //   .domain(extent(data, dataProcessPassXValue["Ground"].value)),
+    // Low: scaleLog()
+    //   .range([innerHeight, 0])
+    //   .domain(extent(data, dataProcessPassXValue["Low"].value)),
+    // High: scaleLog()
+    //   .range([innerHeight, 0])
+    //   .domain(extent(data, dataProcessPassXValue["High"].value)),
     Short: scaleLog()
       .range([innerHeight, 0])
       .domain(extent(data, dataProcessPassXValue["Short"].value)),
