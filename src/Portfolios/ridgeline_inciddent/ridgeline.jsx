@@ -1,7 +1,7 @@
 import { Grid, Container, Slider, Box } from "@mui/material";
 import { useState } from "react";
 import { Chart } from "./Components/Chart/chart";
-import { getData } from "./Components/data/get_data";
+import { GetData } from "./Components/data/get_data";
 // const hourMarks = [
 //   {
 //     value: 6,
@@ -18,7 +18,7 @@ import { getData } from "./Components/data/get_data";
 // ];
 const title = "Jumlah Kecelakaan Setiap Bulan";
 export const Ridgeline = () => {
-  const data = getData();
+  const data = GetData();
   // const [hour, setHour] = useState([1, 24]);
 
   if (!data) {
