@@ -205,7 +205,6 @@ export const Labels = ({
         marginChart={marginChart}
         marginAll={marginAll}
         data={data}
-        handleSort={handleSort}
       />
     </g>
 

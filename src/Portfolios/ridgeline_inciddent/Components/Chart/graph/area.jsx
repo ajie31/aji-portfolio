@@ -10,7 +10,7 @@ export const AreaMark = ({ data, areaMark, lineMark, yScale, xOffset }) => (
     <g className="mars-group">
       {yScale.domain().map((d, i) => {
         return (
-          <g>
+          <g key={d + "-group" + i}>
             <path
               key={d + "-area" + i}
               className="area_mark"

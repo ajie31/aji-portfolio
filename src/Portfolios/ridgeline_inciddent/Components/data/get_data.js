@@ -4,7 +4,7 @@ import { csv } from "d3";
 const ACCIDENT_URL =
   "https://gist.githubusercontent.com/ajie31/4bd3c11af2a2ae09acf82f0601c35f85/raw/e0fda5bda3c36733d78085564e7f5db8de0a14df/accident_usa_2016.csv";
 
-export const getData = () => {
+export const GetData = () => {
   const [dataset, setdataset] = useState();
 
   const row = (d) => {
