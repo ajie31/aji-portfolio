@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 import { BoxProfile } from "./Components/Layout/boxProfile";
 import { BoxPlayerList } from "./Components/Layout/Player List/boxPlayerList";
-// import { GetDataProfile } from "./Components/Data/getData";
-import { BoxClub } from "./Components/Layout/club box/BoxClub";
+
+import BoxClub from "./Components/Layout/club box/BoxClub";
 import { Container, Grid, useMediaQuery } from "@mui/material";
 import { GetDataSquad } from "./Components/API/get_data";
 import { rankByPoints } from "./Components/Data/dataProcess";
