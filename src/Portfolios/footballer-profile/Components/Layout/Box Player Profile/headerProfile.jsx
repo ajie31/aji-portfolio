@@ -20,7 +20,12 @@ export const HeaderProfile = ({ getCountryToCode, data }) => {
             data["Nation"]
           )}.svg`}
         />
-        <Typography variant="h5" component="div" color="text.secondary">
+        <Typography
+          sx={{ paddingRight: ".3em", paddingLeft: ".3em" }}
+          variant="h5"
+          component="div"
+          color="text.secondary"
+        >
           |
         </Typography>
         <Typography variant="h6" component="div" color="text.secondary">

@@ -1,4 +1,4 @@
-export const EplSquad = ({ d, yScale, yValue, r }) => {
+export const EplSquad = ({ d, yScale, yValue, r, originUrl }) => {
   return (
     <g transform={`translate(0,${r * 2.5})`}>
       <defs>
@@ -18,15 +18,20 @@ export const EplSquad = ({ d, yScale, yValue, r }) => {
           />
         </pattern>
       </defs>
-
-      <circle
-        cx={0}
-        cy={yScale(yValue(d))}
-        fill={`url(#${d["Squad"].replace(/\s/g, "")}-bar)`}
-        r={r}
+      <a
+        href={`${originUrl}/portfolio/footballer_profile?club_selected=${d[
+          "Squad"
+        ].replace(/\s/g, "-")}`}
       >
-        <title>{d["Squad"]}</title>
-      </circle>
+        <circle
+          cx={0}
+          cy={yScale(yValue(d))}
+          fill={`url(#${d["Squad"].replace(/\s/g, "")}-bar)`}
+          r={r}
+        >
+          <title>{d["Squad"]}</title>
+        </circle>
+      </a>
     </g>
   );
 };

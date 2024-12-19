@@ -161,6 +161,7 @@ export const Labels = ({
   fontSize,
   strokeWidth,
   handleSort,
+  originUrl,
   marginChart,
   marginAll,
 }) => (
@@ -216,6 +217,7 @@ export const Labels = ({
           yValue={yValue}
           d={d}
           r={r}
+          originUrl={originUrl}
         />
       ))}
 

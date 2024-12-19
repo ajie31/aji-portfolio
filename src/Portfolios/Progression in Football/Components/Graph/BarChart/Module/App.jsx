@@ -24,6 +24,8 @@ export const App = ({ data }) => {
   const [sorted, setSorted] = useState(data);
   const topicContent = {};
 
+  const origin_url = window.location.origin;
+
   const height = 900;
   const width = 750;
 
@@ -150,6 +152,7 @@ export const App = ({ data }) => {
             yValue={yValue}
             meanPass={meanPass}
             meanCArry={meanCarry}
+            originUrl={origin_url}
             innerWidth={innerWidthChart}
             innerHeight={innerHeight}
             handleSort={handleSort}

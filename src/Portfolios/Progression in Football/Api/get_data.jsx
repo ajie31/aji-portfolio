@@ -1,6 +1,3 @@
-import { useState, useEffect } from "react";
-import { csv, json } from "d3";
-
 // import {nextConne}
 // const MongoClient = require('mongodb').MongoClient;
 const DATA_URI_PASS_TYPE =

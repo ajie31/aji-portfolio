@@ -23,8 +23,8 @@ export const TableContent = ({ data }) => {
           <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
             <TableCell align="center">{data["Age"]}</TableCell>
             <TableCell align="center">{data["Appr"]}</TableCell>
-            <TableCell align="center">{data["Goal"]}</TableCell>
-            <TableCell align="center">{data["Asst"]}</TableCell>
+            <TableCell align="center">{data["Gls"]}</TableCell>
+            <TableCell align="center">{data["Ast"]}</TableCell>
           </TableRow>
         </TableBody>
       </Table>

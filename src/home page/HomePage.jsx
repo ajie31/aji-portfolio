@@ -27,7 +27,7 @@ const contents = (breakML) => {
       also able to make data visual using D3.js and React js , and data science using Python.
       I can Handle simple database using sql`,
       `Finished Hactive8 Data Science Bootcamp in 2022,and Hopefully can work as data scientist or data analyst or software engineer that implementing machine learning in it in the future`,
-      `This Website is just to show my Data visuals projects, for my data science projects please checkout my Github ,and please Checkout my Linkedin for more about me`
+      `This Website is just to show my Data visuals projects, for my data science projects please checkout my Github ,and please Checkout my Linkedin for more about me`,
     ],
     Quote: `It’s a feeling that says you have a responsibility. It’s not for
     yourself. That’s why it’s there. That’s why you are out there. And somehow you recognize
@@ -53,7 +53,7 @@ const myWorks = [
   },
   {
     title: "Premier League Player Profiles",
-    url: "/portfolio/footballer_profile",
+    url: "/portfolio/footballer_profile?club_selected=arsenal",
     imgUrl:
       "https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/profile%20player_thumbnail.jpg",
     description:

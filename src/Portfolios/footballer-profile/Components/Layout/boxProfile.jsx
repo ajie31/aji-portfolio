@@ -13,6 +13,7 @@ export const BoxProfile = ({ data, heightImage, heightMark }) => {
     margin: "auto",
     width: heightMark,
   };
+
   return (
     <Card elevation={5} sx={{ width: "100%", maxWidth: 400 }}>
       <CardMedia

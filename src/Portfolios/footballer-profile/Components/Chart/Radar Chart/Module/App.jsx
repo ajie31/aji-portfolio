@@ -5,10 +5,10 @@ import { Catagory } from "./Axis/catagory";
 import { LabelNumber } from "./Axis/labelNumber";
 import {
   progression,
-  offensive,
-  pressure,
+  shooting,
+  takeOn,
   deffense,
-  passCmp,
+  support,
 } from "../../../Data/dataProcess";
 
 const height = 270;
@@ -18,24 +18,37 @@ const maxRadius = 100;
 
 const axisValues = [100, 75, 50, 25];
 
-const categories = [
+const categories_nonGk = [
   "Progression",
-  "Offensive",
-  "Preasure",
+  "Shooting",
+  "Take On",
   "Deffense",
-  "Pass Cmp",
+  "Support",
 ];
+
+const catagories_gk = ["Save", "Cl Sheet", "Launch", "Deffense", "Crs Block"];
 
 export const App = ({ data }) => {
   // TODO [Top,right,bottR,BottL,Left,Top]
-  const dataValue = [
+  const dataValueNonGk = [
     progression(data),
-    offensive(data),
-    pressure(data),
+    shooting(data),
+    takeOn(data),
     deffense(data),
-    passCmp(data),
-    progression(data),
+    support(data),
   ];
+
+  const dataValueGk = [
+    data["Save"],
+    data["CleanSheet"],
+    data["Launch"],
+    data["DefAction"],
+    data["CrossesStopped"],
+  ];
+
+  const categories = data["Post"] == "GK" ? catagories_gk : categories_nonGk;
+
+  const dataValue = data["Post"] == "GK" ? dataValueGk : dataValueNonGk;
 
   return (
     <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="xMinYMin">

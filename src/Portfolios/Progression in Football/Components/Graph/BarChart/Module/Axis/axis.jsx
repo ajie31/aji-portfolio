@@ -11,6 +11,7 @@ export const Axis = ({
   meanPass,
   meanCArry,
   innerWidth,
+  originUrl,
   handleSort,
   marginChart,
   marginAll,
@@ -44,6 +45,7 @@ export const Axis = ({
         fillPass={fillPass}
         fillCaries={fillCaries}
         strokeWidth={strokeWidth}
+        originUrl={originUrl}
         handleSort={handleSort}
         marginChart={marginChart}
         marginAll={marginAll}

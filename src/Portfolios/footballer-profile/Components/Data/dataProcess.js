@@ -254,28 +254,40 @@ export const progression = (data) => {
   return (data["PPass"] + data["PCarry"]) / 2;
 };
 
-export const offensive = (data) => {
-  return (data["SCA"] + data["NpXgXa"] + data["AttPen"]) / 3;
+export const shooting = (data) => {
+  return (data["NPG"] + data["Shot"] + data["NpXg"]) / 3;
 };
 export const deffense = (data) => {
   return (data["Tkl"] + data["Inter"] + data["Block"]) / 3;
 };
-export const passCmp = (data) => {
-  return data["PassCMP%"];
+export const support = (data) => {
+  return (data["PassCMP%"] + data["SCA"] + data["Xa"] + data["Assist"]) / 4;
 };
-export const pressure = (data) => {
-  return data["Press"];
+export const takeOn = (data) => {
+  return data["TakeOn"];
 };
 
 const notUnitedKingdom = (country) =>
   country !== "England" || country !== "Scotland" || country !== "Ireland";
 
 export const getCountryToCode = (country) => {
-  return country === "England"
+  const input = country.split(" ")[0];
+  console.log(input);
+  return input === "eng"
     ? "gb-eng"
-    : country === "Scotland"
+    : input === "sct"
     ? "gb-sct"
-    : Object.keys(isoCountries)
-        .find((k) => isoCountries[k] === country)
-        .toLowerCase();
+    : input === "nir"
+    ? "gb-nir"
+    : input === "wls"
+    ? "gb-wls"
+    : input;
+};
+
+export const rankByPoints = (allData) => {
+  let squadList = allData["features_CLubs"].sort((a, b) => b.Points - a.Points);
+  squadList.forEach((item, index) => {
+    item.rank = index + 1;
+  });
+  return squadList;
 };
