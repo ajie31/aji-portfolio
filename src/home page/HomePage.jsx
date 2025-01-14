@@ -67,6 +67,13 @@ const myWorks = [
     description:
       "Melihat apa saja yang terjadi pada setiap lap pada ajang balapan F1 Musim 2022",
   },
+  {
+    title: "F1 Race Overview",
+    url: "https://f1-overview-new.vercel.app/f1_visual",
+    imgUrl:
+      "https://raw.githubusercontent.com/ajie31/aji-portfolio/refs/heads/main/src/home%20page/image/f1_overview.jpg",
+    description: "data visual menggunakan d3.js dan tailwind css",
+  },
 ];
 export const HomePage = () => {
   const useStyles = makeStyles((theme) => headStyle);
