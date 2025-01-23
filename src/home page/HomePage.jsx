@@ -21,13 +21,11 @@ const headWrap = (breakML) => {
 const contents = (breakML) => {
   return {
     name: breakML ? "Wirawan Setio Aji" : "Wirawan Setio Aji  |",
-    job: breakML ? "Frontend Developer" : "    Frontend Developer",
+    job: breakML ? "Web Developer" : "    Web Developer",
     paragraphs: [
-      `I'am an Data Scientist, strongest point is a programming,using Javascript or Python and Used tobe learn C# ,I do have interest on Making Data Visual Web App, Data Engineering ,and Machine Learning.
-      also able to make data visual using D3.js and React js , and data science using Python.
-      I can Handle simple database using sql`,
-      `Finished Hactive8 Data Science Bootcamp in 2022,and Hopefully can work as data scientist or data analyst or software engineer that implementing machine learning in it in the future`,
-      `This Website is just to show my Data visuals projects, for my data science projects please checkout my Github ,and please Checkout my Linkedin for more about me`,
+      `I am a passionate Web Developer with additional expertise as a Data Engineer. My strongest skills lie in programming with Node.jsand Python, and I have foundational
+       knowledge in C#. I am particularly interested in creating data visual web applications,and data engineering. I am proficient in developing data
+        visualizations using D3.js and React.js, as well as performing data processing tasks with Python. I am also capable of handling  databases using SQL or noSQL like mongo db.`,
     ],
     Quote: `It’s a feeling that says you have a responsibility. It’s not for
     yourself. That’s why it’s there. That’s why you are out there. And somehow you recognize
@@ -41,7 +39,7 @@ const myWorks = [
     imgUrl:
       "https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/previewHIVAIDS.png",
     description:
-      "Data visual tentang HIV dan AIDS secara umum dan peninjauan kasus di Indonesia ",
+      "Data Visual about HIV AIDS in Indonesia in Every province, using Node.js, d3.js and material UI ",
   },
   {
     title: "Grafik Progressifitas dan Pola Mengumpan Pada Liga Premier Inggris",
@@ -49,7 +47,7 @@ const myWorks = [
     imgUrl:
       "https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/football_progression_thumbnail.jpg",
     description:
-      "Perbandingan Data Visual antar club sepak bola Liga Inggris mana yang bermain lebih progressive ",
+      "Progressive Football Play in premiere league, using Node.js, d3.js, mongoDB, material UI, and python API backend ",
   },
   {
     title: "Premier League Player Profiles",
@@ -57,22 +55,23 @@ const myWorks = [
     imgUrl:
       "https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/profile%20player_thumbnail.jpg",
     description:
-      "Tampilan data visual profile performa para pemain bola Liga Inggris",
+      "Data Visual for football player profiling in premier league using using Node.js, d3.js, mongoDB, material UI, and data scraping python API backend ",
   },
   {
-    title: "Meninjau Event Setiap Lap Pada Kompetisi F1",
+    title: "F1 Race Overview V 1.0",
     url: "/portfolio/f1_laptime",
     imgUrl:
       "https://raw.githubusercontent.com/ajie31/aji-portfolio/main/src/home%20page/image/F1%20laptime.jpg",
     description:
-      "Melihat apa saja yang terjadi pada setiap lap pada ajang balapan F1 Musim 2022",
+      "unique data visuals for F1 in seasson 2022  Node.js, d3.js, material UI",
   },
   {
-    title: "F1 Race Overview",
+    title: "F1 Race Overview V2.0",
     url: "https://f1-overview-new.vercel.app/f1_visual",
     imgUrl:
       "https://raw.githubusercontent.com/ajie31/aji-portfolio/refs/heads/main/src/home%20page/image/f1_overview.jpg",
-    description: "data visual menggunakan d3.js dan tailwind css",
+    description:
+      "unique data visuals for F1 seasson 2024 Node.js, d3.js, material UI, and open f1 data API",
   },
 ];
 export const HomePage = () => {
